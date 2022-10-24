@@ -15,11 +15,14 @@ int mainMenu()
 		while (win.pollEvent(e))
 		{
 			if (e.type == Event::KeyPressed && Keyboard::isKeyPressed(Keyboard::Escape))
-				return 0;
+				return 0; // close
+			if (e.type == Event::MouseButtonPressed && Mouse::isButtonPressed(Mouse::Left))
+				return 2; // start game
 		}
 
 		win.clear(Color::Black);
 		win.draw(button);
 		win.display();
 	}
+	return 0;
 }
