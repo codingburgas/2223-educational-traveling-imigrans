@@ -154,11 +154,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="nokiMenu.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="screenManager.cpp" />
     <ClCompile Include="sideSwiperMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="sideSwiper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

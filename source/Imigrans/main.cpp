@@ -2,5 +2,7 @@
 
 int main()
 {
-	manageScreen(mainMenu);
+	win.setVerticalSyncEnabled(true);
+	win.setFramerateLimit(60);
+	manageScreen(startGame);
 }
