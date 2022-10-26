@@ -1,19 +1,24 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include"Animation.h"
 class Player
 {
 public:
-	Player();
-	Player(sf::RectangleShape body);
+	Player(sf::Texture* texture, sf::Vector2u imgCount, float sTime, float mSpeed);
 
-// member variables
-public:
+	void Update(float dTime);
+
 	sf::RectangleShape body;
-private:
-	sf::Vector2f velocity;
-	float mSpeed;
 
-// methods
+
+
+private:
+
+	Animation animation;
+	unsigned int row;
+	float mSpeed;
+	bool fRight;
+
 public:
 	void move();
 private:
