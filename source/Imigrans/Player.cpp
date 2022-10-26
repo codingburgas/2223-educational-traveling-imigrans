@@ -3,17 +3,35 @@
 
 
 Player::Player() : 
-	body(sf::RectangleShape()), velocity(sf::Vector2f(0.f, 0.f)), animation(), row(0), mSpeed(5), fRight(true)
+	body(sf::RectangleShape()), velocity(sf::Vector2f(0.f, 0.f)), animation(),
+	row(0), mSpeed(500), fRight(true)
 {
-body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
-body.setFillColor(sf::Color::Yellow);
+	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
+	body.setFillColor(sf::Color::Green);
+
+	follow.setCenter(sf::Vector2f(body.getSize().x / 2, body.getSize().y / 2));
+	follow.setSize(sf::Vector2f(WIDTH, HEIGHT));
 }
 
 Player::Player(sf::RectangleShape body) :
-	body(body), velocity(sf::Vector2f(0.f, 0.f)), animation(&texture), row(0), mSpeed(5), fRight(true) {}
+	body(body), velocity(sf::Vector2f(0.f, 0.f)), animation(), 
+	row(0), mSpeed(500), fRight(true) 
+{
+	follow.setCenter(sf::Vector2f(body.getSize().x / 2, body.getSize().y / 2));
+	follow.setSize(sf::Vector2f(WIDTH, HEIGHT));
+}
 
 Player::Player(sf::Texture* texture, sf::Vector2u imgCount, float sTime, float mSpeed) :
-	body(sf::RectangleShape()), velocity(sf::Vector2f()),animation(texture, imgCount, sTime), row(0), mSpeed(5), fRight(true) {}
+	body(sf::RectangleShape()), velocity(sf::Vector2f()), animation(texture, imgCount, sTime),
+	row(0), mSpeed(500), fRight(true)
+{
+	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
+	body.setFillColor(sf::Color::Green);
+
+	follow.setCenter(sf::Vector2f(body.getPosition().x + body.getSize().x / 2,
+								  body.getPosition().y - body.getSize().y / 3));
+	follow.setSize(sf::Vector2f(WIDTH, HEIGHT));
+}
 
 void Player::checkColision()
 {
@@ -34,17 +52,12 @@ void Player::checkColision()
 void Player::move()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		velocity.x -= mSpeed * dt.asMilliseconds();
+		velocity.x -= mSpeed * dt.asSeconds();
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		velocity.x += mSpeed * dt.asMilliseconds();
+		velocity.x += mSpeed * dt.asSeconds();
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-		velocity.y -= mSpeed * dt.asMilliseconds();
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-		velocity.y += mSpeed * dt.asMilliseconds();
-	
+	// animation stuff
 	if (velocity.x == 0.0f)
 		row = 0;
 	else
@@ -64,7 +77,7 @@ void Player::update()
 {
 	// update animation
 	move();
-	animation.update(row, (float)dt.asMilliseconds(), fRight);
+	animation.update(row, (float)dt.asSeconds(), fRight);
 	velocity = sf::Vector2f(0.f, 0.f);
 	body.setTextureRect(animation.uvRect);
 }
