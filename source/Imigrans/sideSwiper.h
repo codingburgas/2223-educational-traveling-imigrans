@@ -4,4 +4,5 @@
 
 extern Player player;
 
-extern sf::Clock dt;
+extern sf::Clock frameTime;
+extern sf::Time dt;

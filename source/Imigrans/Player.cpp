@@ -1,18 +1,19 @@
 #include "Player.h"
 #include "sideSwiper.h"
 
-Player::Player(sf::Texture* texture, sf::Vector2u imgCount, float sTime, float mSpeed) :
-	animation(texture, imgCount, sTime)
-{
-	this->mSpeed = mSpeed;
-	row = 0;
-	fRight = true;
 
-	body.setSize(sf::Vector2f(100.0f, 150.0f));
-	body.setOrigin(body.getSize() / 2.0f);
-	body.setPosition(206.f, 206.f);
-	body.setTexture(texture);
-};
+Player::Player() : 
+	body(sf::RectangleShape()), velocity(sf::Vector2f(0.f, 0.f)), animation(), row(0), mSpeed(5), fRight(true)
+{
+body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
+body.setFillColor(sf::Color::Yellow);
+}
+
+Player::Player(sf::RectangleShape body) :
+	body(body), velocity(sf::Vector2f(0.f, 0.f)), animation(&texture), row(0), mSpeed(5), fRight(true) {}
+
+Player::Player(sf::Texture* texture, sf::Vector2u imgCount, float sTime, float mSpeed) :
+	body(sf::RectangleShape()), velocity(sf::Vector2f()),animation(texture, imgCount, sTime), row(0), mSpeed(5), fRight(true) {}
 
 void Player::checkColision()
 {
@@ -30,44 +31,40 @@ void Player::checkColision()
 		body.setPosition(sf::Vector2f(body.getPosition().x, HEIGHT - body.getSize().y));
 }
 
-void Player::Update(float dTime)
+void Player::move()
 {
-	sf::Vector2f velocity(0.0f, 0.0f);
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-		velocity.x -= mSpeed * dTime;
+		velocity.x -= mSpeed * dt.asMilliseconds();
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-		velocity.x += mSpeed * dTime;
+		velocity.x += mSpeed * dt.asMilliseconds();
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-		velocity.y -= mSpeed * dTime;
+		velocity.y -= mSpeed * dt.asMilliseconds();
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-		velocity.y += mSpeed * dTime;
-
+		velocity.y += mSpeed * dt.asMilliseconds();
+	
 	if (velocity.x == 0.0f)
-	{
 		row = 0;
-	}
 	else
 	{
 		row = 1;
 
 		if (velocity.x > 0)
-		{
 			fRight = 1;
-		}
 		else
-		{
 			fRight = 0;
-
-		}
 	}
-	animation.Update(row, dTime, fRight);
-	body.setTextureRect(animation.uvRect);
 	body.move(velocity);
-	velocity = sf::Vector2f(0.f, 0.f);
 	checkColision();
-	
+}
+
+void Player::update()
+{
+	// update animation
+	move();
+	animation.update(row, (float)dt.asMilliseconds(), fRight);
+	velocity = sf::Vector2f(0.f, 0.f);
+	body.setTextureRect(animation.uvRect);
 }
