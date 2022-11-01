@@ -6,7 +6,7 @@ class Button
 
 public:
 	Button();
-	Button(sf::RectangleShape shape,sf::Vector2f size,sf::Texture texture,sf::Vector2f pos, sf::Vector2f mousePos,sf::FloatRect boundingBox, sf::FloatRect mouseboundingBox, bool isClicked);
+	Button(sf::RectangleShape shape,sf::Vector2f size,sf::Texture texture,sf::Vector2f pos, sf::Vector2f mousePos,sf::FloatRect boundingBox, sf::FloatRect mouseboundingBox, bool isClicked, sf::Color color);
 
 
 public:
@@ -26,5 +26,7 @@ public:
 	sf::FloatRect mouseboundingBox;
 	
 	bool isClicked = false;
+
+	sf::Color color;
 };
 
