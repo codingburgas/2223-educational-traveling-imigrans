@@ -1,27 +1,51 @@
 #include "Button.h"
-#include <SFML/Graphics.hpp>
-Button::Button():Button()
+#include "sideSwiper.h"
+
+// constructors
+
+Button::Button() :
+	rect(sf::RectangleShape(sf::Vector2f(WIDTH / 15.f, HEIGHT / 15.f))), texture(nullptr), clicked(false)
 {
+	rect.setFillColor(sf::Color::Green);
 }
 
-Button::Button(sf::RectangleShape shape, sf::Vector2f size, sf::Texture texture, sf::Vector2f pos, sf::Vector2f mousePos, sf::FloatRect boundingBox, sf::FloatRect mouseboundingBox, bool isClicked,sf::Color color)
+Button::Button(sf::RectangleShape rect, sf::Texture* texture) : 
+	rect(rect), texture(texture), clicked(false)
 {
-	shape.setSize(size);
-	shape.setFillColor(color);
-	shape.setTexture(&texture);
-	shape.setPosition(pos);
-
-	if (boundingBox.intersects(mouseboundingBox) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
-	{
-		isClicked = true; 
-	}
-	else
-	{
-		isClicked = false;
-	}
-
-
-	
+	rect.setTexture(texture);
 }
 
+// getters
 
+const sf::RectangleShape Button::getRect()
+{
+	return rect;
+}
+
+const sf::Texture* Button::getTexture()
+{
+	return texture;
+}
+
+const bool Button::isClicked()
+{
+	return clicked;
+}
+
+// setters
+
+void Button::setRect(sf::RectangleShape& rect)
+{
+	this->rect = rect;
+}
+
+void Button::setTexture(sf::Texture* texture)
+{
+	this->texture = texture;
+	rect.setTexture(texture);
+}
+
+void Button::setClicked(bool clicked)
+{
+	this->clicked = clicked;
+}

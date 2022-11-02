@@ -1,32 +1,30 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 class Button
-
 {
 
 public:
+	// constructors
+
 	Button();
-	Button(sf::RectangleShape shape,sf::Vector2f size,sf::Texture texture,sf::Vector2f pos, sf::Vector2f mousePos,sf::FloatRect boundingBox, sf::FloatRect mouseboundingBox, bool isClicked, sf::Color color);
+	Button(sf::RectangleShape rect,sf::Texture* texture);
 
-
-public:
-
-	sf::RectangleShape shape;
+	// getters
 	
-	sf::Vector2f size;
+	const sf::RectangleShape getRect();
+	const sf::Texture* getTexture();
+	const bool isClicked();
 
-	sf::Texture texture;
+	// setters
+
+	void setRect(sf::RectangleShape& rect);
+	void setTexture(sf::Texture* texture);
+	void setClicked(bool clicked);
+private:
+
+	sf::RectangleShape rect;
+	sf::Texture* texture;
 	
-	sf::Vector2f position;
-
-	sf::Vector2f mousePos;
-
-	sf::FloatRect boundingBox;
-
-	sf::FloatRect mouseboundingBox;
-	
-	bool isClicked = false;
-
-	sf::Color color;
+	bool clicked;
 };
 

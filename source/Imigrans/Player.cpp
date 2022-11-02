@@ -3,7 +3,7 @@
 
 
 Player::Player() : 
-	body(sf::RectangleShape()), velocity(sf::Vector2f(0.f, 0.f)), animation(),
+	body(sf::RectangleShape()), texture(nullptr), velocity(sf::Vector2f(0.f, 0.f)), animation(),
 	row(0), mSpeed(500), fRight(true)
 {
 	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
@@ -14,7 +14,7 @@ Player::Player() :
 }
 
 Player::Player(sf::RectangleShape body) :
-	body(body), velocity(sf::Vector2f(0.f, 0.f)), animation(), 
+	body(body), texture(nullptr), velocity(sf::Vector2f(0.f, 0.f)), animation(),
 	row(0), mSpeed(500), fRight(true) 
 {
 	follow.setCenter(sf::Vector2f(body.getSize().x / 2, body.getSize().y / 2));
@@ -22,7 +22,7 @@ Player::Player(sf::RectangleShape body) :
 }
 
 Player::Player(sf::Texture* texture, sf::Vector2u imgCount, float sTime, float mSpeed) :
-	body(sf::RectangleShape()), velocity(sf::Vector2f()), animation(texture, imgCount, sTime),
+	body(sf::RectangleShape()), texture(texture), velocity(sf::Vector2f()), animation(texture, imgCount, sTime),
 	row(0), mSpeed(500), fRight(true)
 {
 	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
@@ -80,4 +80,57 @@ void Player::update()
 	animation.update(row, (float)dt.asSeconds(), fRight);
 	velocity = sf::Vector2f(0.f, 0.f);
 	body.setTextureRect(animation.uvRect);
+}
+
+// getters
+
+const sf::RectangleShape Player::getRect()
+{
+	return body;
+}
+
+const sf::Texture* Player::getTexture()
+{
+	return texture;
+}
+
+const sf::View Player::getView()
+{
+	return follow;
+}
+
+// setters
+
+// rect
+void Player::setRect(sf::RectangleShape& rect)
+{
+	body = rect;
+}
+
+void Player::setPosition(sf::Vector2f pos)
+{
+	body.setPosition(pos);
+}
+
+// texture
+void Player::setTexture(sf::Texture* texture)
+{
+	this->texture = texture;
+	body.setTexture(texture);
+}
+
+// view
+void Player::setView(sf::View view)
+{
+	follow = view;
+}
+
+void Player::setViewSize(sf::Vector2f size)
+{
+	follow.setSize(size);
+}
+
+void Player::setViewCenter(sf::Vector2f center)
+{
+	follow.setCenter(center);
 }
