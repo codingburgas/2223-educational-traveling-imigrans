@@ -11,7 +11,7 @@ Player player(&playerTex, sf::Vector2u(3/*row*/, 3/*collumn*/), 0.3f, 2.0f);
 
 int startGame()
 {
-	sf::RectangleShape background(sf::Vector2f(WIDTH,HEIGHT));
+	sf::RectangleShape background(sf::Vector2f(WIDTH * 3,HEIGHT));
 	background.setFillColor(sf::Color::White);
 	player.setPosition(sf::Vector2f(player.getRect().getPosition().x, HEIGHT - player.getRect().getSize().y));
 	while (win.isOpen())
