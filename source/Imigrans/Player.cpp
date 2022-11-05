@@ -4,33 +4,33 @@
 
 Player::Player() : 
 	body(sf::RectangleShape()), texture(nullptr), velocity(sf::Vector2f(0.f, 0.f)), animation(),
-	row(0), mSpeed(500), fRight(true)
+	row(0), mSpeed(500), fRight(true), inside(false)
 {
-	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
+	body.setSize(sf::Vector2f((float)WIDTH / 10.159f, (float)HEIGHT / 3.214f));
 	body.setFillColor(sf::Color::Green);
 
 	follow.setCenter(sf::Vector2f(body.getSize().x / 2, body.getSize().y / 2));
-	follow.setSize(sf::Vector2f(WIDTH, HEIGHT));
+	follow.setSize(sf::Vector2f((float)WIDTH, (float)HEIGHT));
 }
 
 Player::Player(sf::RectangleShape body) :
 	body(body), texture(nullptr), velocity(sf::Vector2f(0.f, 0.f)), animation(),
-	row(0), mSpeed(500), fRight(true) 
+	row(0), mSpeed(500), fRight(true), inside(false)
 {
 	follow.setCenter(sf::Vector2f(body.getSize().x / 2, body.getSize().y / 2));
-	follow.setSize(sf::Vector2f(WIDTH, HEIGHT));
+	follow.setSize(sf::Vector2f((float)WIDTH, (float)HEIGHT));
 }
 
 Player::Player(sf::Texture* texture, sf::Vector2u imgCount, float sTime, float mSpeed) :
 	body(sf::RectangleShape()), texture(texture), velocity(sf::Vector2f()), animation(texture, imgCount, sTime),
-	row(0), mSpeed(500), fRight(true)
+	row(0), mSpeed(500), fRight(true), inside(false)
 {
-	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
+	body.setSize(sf::Vector2f((float)WIDTH / 10.159f, (float)HEIGHT / 3.214f));
 	body.setFillColor(sf::Color::Green);
 
 	follow.setCenter(sf::Vector2f(body.getPosition().x + body.getSize().x / 2,
 								  body.getPosition().y - body.getSize().y / 3));
-	follow.setSize(sf::Vector2f(WIDTH, HEIGHT));
+	follow.setSize(sf::Vector2f((float)WIDTH, (float)HEIGHT));
 }
 
 void Player::checkColision()
@@ -39,14 +39,17 @@ void Player::checkColision()
 	if (body.getPosition().x < 0)
 		body.setPosition(sf::Vector2f(1, body.getPosition().y));
 	// right
-	else if (body.getPosition().x + body.getSize().x > WIDTH * 3)
-		body.setPosition(sf::Vector2f(WIDTH*3 - body.getSize().x, body.getPosition().y));
+	else if (!inside && body.getPosition().x + body.getSize().x > (float)WIDTH * mapSize)
+		body.setPosition(sf::Vector2f((float)WIDTH * mapSize - body.getSize().x, body.getPosition().y));
+	else if (inside && body.getPosition().x + body.getSize().x > (float)WIDTH)
+		body.setPosition(sf::Vector2f((float)WIDTH - body.getSize().x, body.getPosition().y));
+
 	// top
 	if (body.getPosition().y < 0)
 		body.setPosition(sf::Vector2f(body.getPosition().x, 0 + 1));
 	// bottom
-	else if (body.getPosition().y + body.getSize().y > HEIGHT)
-		body.setPosition(sf::Vector2f(body.getPosition().x, HEIGHT - body.getSize().y));
+	else if (body.getPosition().y + body.getSize().y > (float)HEIGHT)
+		body.setPosition(sf::Vector2f(body.getPosition().x, (float)HEIGHT - body.getSize().y));
 }
 
 void Player::move()

@@ -37,13 +37,11 @@ private:
 	sf::Texture *texture;
 	sf::View follow;
 
-	// private members
 	sf::Vector2f velocity;
 	Animation animation;
 	unsigned int row;
 	float mSpeed;
 	bool fRight;
-	
-
+	bool inside;
 };
 
