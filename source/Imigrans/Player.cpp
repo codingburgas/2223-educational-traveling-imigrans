@@ -43,13 +43,6 @@ void Player::checkColision()
 		body.setPosition(sf::Vector2f((float)WIDTH * mapSize - body.getSize().x, body.getPosition().y));
 	else if (inside && body.getPosition().x + body.getSize().x > (float)WIDTH)
 		body.setPosition(sf::Vector2f((float)WIDTH - body.getSize().x, body.getPosition().y));
-
-	// top
-	if (body.getPosition().y < 0)
-		body.setPosition(sf::Vector2f(body.getPosition().x, 0 + 1));
-	// bottom
-	else if (body.getPosition().y + body.getSize().y > (float)HEIGHT)
-		body.setPosition(sf::Vector2f(body.getPosition().x, (float)HEIGHT - body.getSize().y));
 }
 
 void Player::move()

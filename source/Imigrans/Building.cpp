@@ -18,7 +18,7 @@ Building::Building(sf::RectangleShape outside, sf::RectangleShape inside, NPC np
 }
 
 Building::Building(sf::Texture* outside, sf::Texture* inside, NPC npc) :
-	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH/4.f, (float)HEIGHT/1.5f))), inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
+	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH/2.f, (float)HEIGHT/1.2f))), inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
 	outTexture(outside), inTexture(inside),
 	npc(npc)
 {
@@ -82,6 +82,16 @@ void Building::setOutsideColor(sf::Color col)
 void Building::setInsideColor(sf::Color col)
 {
 	inside.setFillColor(col);
+}
+
+void Building::setOutsidePos(sf::Vector2f pos)
+{
+	outside.setPosition(pos);
+}
+
+void Building::setInsidePos(sf::Vector2f pos)
+{
+	inside.setPosition(pos);
 }
 
 void Building::setOutsideTexture(sf::Texture* texture)

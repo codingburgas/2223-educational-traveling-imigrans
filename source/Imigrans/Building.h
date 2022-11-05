@@ -31,6 +31,8 @@ public:
 	void setOutsideColor(sf::Color col);
 	void setInsideColor(sf::Color col);
 
+	void setOutsidePos(sf::Vector2f pos);
+	void setInsidePos(sf::Vector2f pos);
 
 	void setOutsideTexture(sf::Texture* outTexture);
 	void setInsideTexture(sf::Texture* inTexture);

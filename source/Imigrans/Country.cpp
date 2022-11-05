@@ -1,5 +1,6 @@
 #include "Country.h"
-
+#include "sideSwiper.h"
+#include <random>
 Country::Country() : 
 	buildings(std::unordered_map<std::string,Building>())
 {
@@ -206,6 +207,7 @@ Country::Country(std::string country)
 	buildings["bank"].setOutsideColor(sf::Color::Yellow);
 	buildings["hotel"].setOutsideColor(sf::Color::Cyan);
 	buildings["restaurant"].setOutsideColor(sf::Color::Red);
+	randomizeBuildingPos();
 }
 
 const Building Country::getBuilding(std::string building)
@@ -213,4 +215,45 @@ const Building Country::getBuilding(std::string building)
 	if(buildings.find(building) != buildings.end())
 		return buildings.at(building);
 	return Building();
+}
+
+const std::unordered_map<std::string, Building> Country::getBuildings()
+{
+	return buildings;
+}
+
+void Country::setBuildings(std::unordered_map<std::string, Building> &buildings)
+{
+	this->buildings = buildings;
+}
+void Country::setBuildings(std::unordered_map<std::string, Building> buildings)
+{
+	this->buildings = buildings;
+}
+
+
+
+void Country::randomizeBuildingPos()
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_real_distribution<> dis((double)WIDTH/2, (double)WIDTH * mapSize - buildings.at("restaurant").getOutsideRect().getSize().x);
+	bool clear = false;
+	for (auto &i : buildings)
+	{
+		clear = false;
+		while (!clear) {
+			clear = true;
+			i.second.setOutsidePos(sf::Vector2f(dis(gen), HEIGHT - i.second.getOutsideRect().getSize().y));
+			for (auto &j : buildings)
+			{
+				if (i.second.getOutsideRect().getGlobalBounds().intersects(j.second.getOutsideRect().getGlobalBounds())
+					&& i.first != j.first)
+				{
+					clear = false;
+					break;
+				}
+			}
+		}
+	}
 }

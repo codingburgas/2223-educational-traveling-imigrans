@@ -1,5 +1,4 @@
 #include "sideSwiper.h"
-#include "Player.h"
 
 
 sf::Clock frameTime;
@@ -8,9 +7,12 @@ sf::Texture playerTex;
 
 //playerTex.loadFromFile(".png");
 Player player(&playerTex, sf::Vector2u(3/*row*/, 3/*collumn*/), 0.3f, 2.0f);
-extern int mapSize = 3;
+extern int mapSize = 4;
+
 int startGame()
 {
+	std::string currentCountry = "gr";
+
 	sf::RectangleShape background(sf::Vector2f( (float)WIDTH * mapSize, (float)HEIGHT));
 	background.setFillColor(sf::Color::White);
 	player.setPosition(sf::Vector2f(player.getRect().getPosition().x,  (float)HEIGHT - player.getRect().getSize().y));
@@ -36,6 +38,13 @@ int startGame()
 
 		win.clear(sf::Color::Black);
 		win.draw(background);
+
+		for (auto it : europe.at(currentCountry).getBuildings()) {
+			win.draw(it.second.getOutsideRect());
+			//std::cout << "x: "
+			//	<<it.second.getOutsideRect().getPosition().x << " y: " << it.second.getOutsideRect().getPosition().y << std::endl;
+		}
+
 		win.draw(player.getRect());
 		win.display();
 	}
