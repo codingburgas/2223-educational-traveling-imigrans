@@ -40,7 +40,7 @@ void Player::checkColision()
 		body.setPosition(sf::Vector2f(1, body.getPosition().y));
 	// right
 	else if (body.getPosition().x + body.getSize().x > WIDTH * 3)
-		body.setPosition(sf::Vector2f(WIDTH - body.getSize().x, body.getPosition().y));
+		body.setPosition(sf::Vector2f(WIDTH*3 - body.getSize().x, body.getPosition().y));
 	// top
 	if (body.getPosition().y < 0)
 		body.setPosition(sf::Vector2f(body.getPosition().x, 0 + 1));
