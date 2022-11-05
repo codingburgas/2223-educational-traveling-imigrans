@@ -154,6 +154,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Country.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="nokiMenu.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Country.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />

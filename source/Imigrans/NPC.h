@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include "Animation.h"
 class NPC
 {
 public:
@@ -27,4 +27,5 @@ private:
 
 	sf::RectangleShape body;
 	sf::Texture* texture;
+	Animation anim = Animation();
 };
