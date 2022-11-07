@@ -7,7 +7,7 @@ int mainMenu()
 	RectangleShape button(Vector2f(bWidth, bHeight));
 
 	button.setFillColor(Color::Green);
-	button.setPosition(Vector2f((WIDTH - bWidth)/2, (HEIGHT - bHeight)/ 2));
+	button.setPosition(Vector2f((WIDTH - bWidth) / 2, (HEIGHT - bHeight) / 2));
 
 	while (win.isOpen())
 	{

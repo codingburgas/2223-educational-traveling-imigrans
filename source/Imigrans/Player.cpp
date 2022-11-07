@@ -2,12 +2,12 @@
 #include "sideSwiper.h"
 
 
-Player::Player() : 
+Player::Player() :
 	body(sf::RectangleShape()), texture(nullptr), velocity(sf::Vector2f(0.f, 0.f)), animation(),
 	row(0), mSpeed(500), fRight(true), inside(false)
 {
 	body.setSize(sf::Vector2f((float)WIDTH / 10.159f, (float)HEIGHT / 3.214f));
-	body.setFillColor(sf::Color::Green);
+	//body.setFillColor(sf::Color::Green);
 
 	follow.setCenter(sf::Vector2f(body.getSize().x / 2, body.getSize().y / 2));
 	follow.setSize(sf::Vector2f((float)WIDTH, (float)HEIGHT));
@@ -26,10 +26,10 @@ Player::Player(sf::Texture* texture, sf::Vector2u imgCount, float sTime, float m
 	row(0), mSpeed(500), fRight(true), inside(false)
 {
 	body.setSize(sf::Vector2f((float)WIDTH / 10.159f, (float)HEIGHT / 3.214f));
-	body.setFillColor(sf::Color::Green);
+	//body.setFillColor(sf::Color::Green);
 
 	follow.setCenter(sf::Vector2f(body.getPosition().x + body.getSize().x / 2,
-								  body.getPosition().y - body.getSize().y / 3));
+		body.getPosition().y - body.getSize().y / 3));
 	follow.setSize(sf::Vector2f((float)WIDTH, (float)HEIGHT));
 }
 
@@ -113,6 +113,7 @@ void Player::setTexture(sf::Texture* texture)
 {
 	this->texture = texture;
 	body.setTexture(texture);
+	animation.setTexture(texture);
 }
 
 // view

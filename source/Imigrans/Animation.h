@@ -14,6 +14,9 @@ public:
 
 	void update(int row, float dTime, bool fRight);
 
+	void setTexture(sf::Texture* texture);
+
+
 public:
 
 	sf::IntRect uvRect;

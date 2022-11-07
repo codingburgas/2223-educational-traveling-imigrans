@@ -4,7 +4,7 @@
 
 class Building
 {
-	
+
 public:
 
 	// constructors
@@ -12,7 +12,7 @@ public:
 	Building();
 	Building(sf::RectangleShape outside, sf::RectangleShape inside, NPC npc = NPC());
 	Building(sf::Texture* outside, sf::Texture* inside, NPC npc = NPC());
-	Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture *outTexture, sf::Texture *inTexture, NPC npc = NPC());
+	Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture* outTexture, sf::Texture* inTexture, NPC npc = NPC());
 
 	// getters
 	const sf::RectangleShape getOutsideRect();
@@ -44,7 +44,7 @@ private:
 	sf::RectangleShape outside;
 	sf::RectangleShape inside;
 
-	sf::Texture* outTexture; 
+	sf::Texture* outTexture;
 	sf::Texture* inTexture;
 
 	NPC npc;

@@ -2,8 +2,9 @@
 
 
 Animation::Animation() :
-	uvRect(sf::IntRect()), imgCount(sf::Vector2u()), currentImg(sf::Vector2u()), tTime(0), sTime(0) 
+	uvRect(sf::IntRect()), imgCount(sf::Vector2u()), currentImg(sf::Vector2u()), tTime(0), sTime(0)
 {}
+
 Animation::Animation(sf::Texture* texture) :
 	uvRect(sf::IntRect()), imgCount(sf::Vector2u()), currentImg(sf::Vector2u()), tTime(0), sTime(0)
 {
@@ -12,6 +13,7 @@ Animation::Animation(sf::Texture* texture) :
 	uvRect.width = texture->getSize().x / imgCount.x;
 	uvRect.height = texture->getSize().y / imgCount.y;
 }
+
 Animation::Animation(sf::Texture* texture, sf::Vector2u imgCount, float sTime) :
 	uvRect(sf::IntRect()), imgCount(imgCount), currentImg(sf::Vector2u()), tTime(0), sTime(sTime)
 {
@@ -53,3 +55,10 @@ void Animation::update(int row, float dTime, bool fRight)
 }
 
 
+void Animation::setTexture(sf::Texture* texture)
+{
+	currentImg.x = 0;
+
+	uvRect.width = texture->getSize().x / imgCount.x;
+	uvRect.height = texture->getSize().y / imgCount.y;
+}

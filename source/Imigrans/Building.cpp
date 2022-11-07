@@ -3,7 +3,7 @@
 
 // constructors
 
-Building::Building() : 
+Building::Building() :
 	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
 	inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
 	outTexture(nullptr), inTexture(nullptr),
@@ -12,13 +12,13 @@ Building::Building() :
 }
 
 Building::Building(sf::RectangleShape outside, sf::RectangleShape inside, NPC npc) :
-	outside(outside), inside(inside), outTexture(nullptr), inTexture(nullptr), 
+	outside(outside), inside(inside), outTexture(nullptr), inTexture(nullptr),
 	npc(npc)
 {
 }
 
 Building::Building(sf::Texture* outside, sf::Texture* inside, NPC npc) :
-	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH/2.f, (float)HEIGHT/1.2f))), inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
+	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH / 2.f, (float)HEIGHT / 1.2f))), inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
 	outTexture(outside), inTexture(inside),
 	npc(npc)
 {

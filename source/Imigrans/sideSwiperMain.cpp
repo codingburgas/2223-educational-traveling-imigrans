@@ -6,23 +6,25 @@ sf::Time dt;
 sf::Texture playerTex;
 
 
-Player player(&playerTex, sf::Vector2u(2/*row*/, 3/*collumn*/), 0.3f, 2.0f);
-
+Player player(&playerTex, sf::Vector2u(2/*row*/, 3/*collumn*/), 0.2f, 2.0f);
 extern int mapSize = 4;
 
 int startGame()
 {
 	std::string currentCountry = "gr";
 
-	sf::RectangleShape background(sf::Vector2f( (float)WIDTH * mapSize, (float)HEIGHT));
+	sf::RectangleShape background(sf::Vector2f((float)WIDTH * mapSize, (float)HEIGHT));
 	background.setFillColor(sf::Color::White);
-	player.setPosition(sf::Vector2f(player.getRect().getPosition().x,  (float)HEIGHT - player.getRect().getSize().y));
+
+	player.setPosition(sf::Vector2f(player.getRect().getPosition().x, (float)HEIGHT - player.getRect().getSize().y));
+	playerTex.loadFromFile("assets/character/spriteSheet.png");
+	player.setTexture(&playerTex);
 
 	auto europe = makeCountries();
 	while (win.isOpen())
 	{
 		dt = frameTime.restart();
-		
+
 		sf::Event e;
 		while (win.pollEvent(e))
 		{
@@ -31,16 +33,16 @@ int startGame()
 		}
 
 		player.update();
-		
-		
+
+
 		win.setView(player.getView());
 		player.setViewCenter(sf::Vector2f(player.getRect().getPosition().x + player.getRect().getSize().x / 2,
-											 player.getRect().getPosition().y - player.getRect().getSize().y / 3));
+			player.getRect().getPosition().y - player.getRect().getSize().y / 3));
 
 		win.clear(sf::Color::Black);
 		win.draw(background);
 
-		for (auto it : europe.at(currentCountry).getBuildings()) {
+		for (auto it : europe.at("gr").getBuildings()) {
 			win.draw(it.second.getOutsideRect());
 			//std::cout << "x: "
 			//	<<it.second.getOutsideRect().getPosition().x << " y: " << it.second.getOutsideRect().getPosition().y << std::endl;
