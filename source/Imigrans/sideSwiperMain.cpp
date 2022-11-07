@@ -5,8 +5,9 @@ sf::Clock frameTime;
 sf::Time dt;
 sf::Texture playerTex;
 
-//playerTex.loadFromFile(".png");
-Player player(&playerTex, sf::Vector2u(3/*row*/, 3/*collumn*/), 0.3f, 2.0f);
+
+Player player(&playerTex, sf::Vector2u(2/*row*/, 3/*collumn*/), 0.3f, 2.0f);
+
 extern int mapSize = 4;
 
 int startGame()
