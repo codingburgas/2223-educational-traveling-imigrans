@@ -9,6 +9,6 @@
 int manageScreen(std::function<int()> func);
 int mainMenu();
 int startGame();
-
+int startNokiPhone();
 const int WIDTH = sf::VideoMode::getDesktopMode().width, HEIGHT = sf::VideoMode::getDesktopMode().height;
 extern sf::RenderWindow win;

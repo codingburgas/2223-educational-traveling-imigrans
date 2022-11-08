@@ -17,6 +17,9 @@ int manageScreen(std::function<int()> func)
 	case 2: // start game
 		manageScreen(startGame);
 		break;
+	case 3: // start NokiMenu
+		manageScreen(startNokiPhone);
+		break;
 	default: // error
 		std::cout << "Error Wrong return value at " << &func << "\n";
 	}

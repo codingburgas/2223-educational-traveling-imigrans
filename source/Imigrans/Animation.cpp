@@ -35,7 +35,7 @@ void Animation::update(int row, float dTime, bool fRight)
 		tTime -= sTime; //makes animation smoother 
 		currentImg.x++;
 
-		if (currentImg.x++ >= imgCount.x)
+		if (currentImg.x >= imgCount.x)//ask niki
 		{
 			currentImg.x = 0;
 		}
