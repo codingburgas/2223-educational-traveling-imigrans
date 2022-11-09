@@ -6,7 +6,7 @@ sf::Time dt;
 sf::Texture playerTex;
 
 
-Player player(&playerTex, sf::Vector2u(3/*row*/, 2/*collumn*/), 0.2f, 1.5f);
+Player player(&playerTex, sf::Vector2u(3/*collumn*/, 2/*row*/), 0.3f, 1.5f);
 extern int mapSize = 4;
 
 int startGame()
@@ -16,7 +16,7 @@ int startGame()
 	sf::RectangleShape background(sf::Vector2f((float)WIDTH * mapSize, (float)HEIGHT));
 	background.setFillColor(sf::Color::White);
 
-	player.setPosition(sf::Vector2f(player.getRect().getPosition().x, ((float)HEIGHT - player.getRect().getSize().y) + (float)HEIGHT / 30.8571));
+	player.setPosition(sf::Vector2f(player.getRect().getPosition().x, ((float)HEIGHT - player.getRect().getSize().y)));
 	playerTex.loadFromFile("assets/character/spriteSheet.png");
 	player.setTexture(&playerTex);
 

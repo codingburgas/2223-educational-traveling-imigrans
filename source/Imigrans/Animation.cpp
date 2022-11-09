@@ -33,12 +33,21 @@ void Animation::update(int row, float dTime, bool fRight)
 	if (tTime >= sTime)
 	{
 		tTime -= sTime; //makes animation smoother 
-		currentImg.x++;
-
+		if (aforward)
+			currentImg.x++;
+		else
+			currentImg.x--;
 		if (currentImg.x >= imgCount.x)//ask niki
 		{
+			aforward = false;
+			currentImg.x = imgCount.x-2;
+		}
+		else if (currentImg.x <= 0) 
+		{
+			aforward = true;
 			currentImg.x = 0;
 		}
+		
 	}
 
 	uvRect.top = currentImg.y * uvRect.height;
