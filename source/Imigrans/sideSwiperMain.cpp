@@ -29,8 +29,8 @@ int startGame()
 	// exit loading
 
 	loaded = true;
-	loading.join();
-	win.setActive(true);
+	loading.join(); // wait for the thread function to finish
+	win.setActive(true); // set window as an OpenGL render target
 
 	while (win.isOpen())
 	{
