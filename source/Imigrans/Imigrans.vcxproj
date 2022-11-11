@@ -155,6 +155,7 @@
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Country.cpp" />
+    <ClCompile Include="loadingScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="nokiMenu.cpp" />

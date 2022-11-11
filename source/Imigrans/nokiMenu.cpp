@@ -2,13 +2,21 @@
 
 int startNokiPhone()
 {
+	// loading screen
+	
+	win.setActive(false);
+	std::thread loading(loadingScreen);
+
+	// prolong loading
+	//using namespace std::chrono_literals;
+	//std::this_thread::sleep_for(3000ms);
 
 	sf::RectangleShape background(sf::Vector2f((float)WIDTH, (float)HEIGHT));
 	background.setFillColor(sf::Color::White);
-	sf::RectangleShape holdingHand(sf::Vector2f(WIDTH / 3, HEIGHT   ));
-	sf::RectangleShape nokiPhone(sf::Vector2f(WIDTH / 4, HEIGHT / 1.2));
+	sf::RectangleShape holdingHand(sf::Vector2f((float)WIDTH / 3.f, (float)HEIGHT));
+	sf::RectangleShape nokiPhone(sf::Vector2f((float)WIDTH / 4.f, (float)HEIGHT / 1.2f));
 	sf::RectangleShape map;
-	sf::RectangleShape pointerHand(sf::Vector2f(WIDTH / 3, HEIGHT));
+	sf::RectangleShape pointerHand(sf::Vector2f((float)WIDTH / 3.f, (float)HEIGHT));
 
 
 	win.setMouseCursorVisible(false); // Hide cursor
@@ -17,21 +25,28 @@ int startNokiPhone()
 	// Load image and create sprite
 	sf::Texture cursorTex;
 	cursorTex.loadFromFile("assets/hand/cursor.png");
-	pointerHand.setTexture(&cursorTex); 
+	pointerHand.setTexture(&cursorTex);
 
-		sf::Texture holderTex;
+	sf::Texture holderTex;
 	holderTex.loadFromFile("assets/hand/phoneHolder.png");
 	holdingHand.setTexture(&holderTex);
-	holdingHand.setPosition(WIDTH/2-WIDTH/4,HEIGHT/5);
-	
-	sf::Texture nokiPhoneTex; 
+	holdingHand.setPosition((float)WIDTH / 2.f - (float)WIDTH / 4.f, (float)HEIGHT / 5.f);
+
+	sf::Texture nokiPhoneTex;
 	nokiPhoneTex.loadFromFile("assets/phone/empty.png");
 	nokiPhone.setTexture(&nokiPhoneTex);
-	nokiPhone.setPosition(WIDTH / 2.6, HEIGHT / 4-HEIGHT/6 );
+	nokiPhone.setPosition((float)WIDTH / 2.6f, (float)HEIGHT / 4.f - (float)HEIGHT / 6.f);
 
 	sf::Texture BackgroundTex; 
 	BackgroundTex.loadFromFile("assets/background/phoneBackground.png");
+
 	background.setTexture(&BackgroundTex);
+
+	// exit loading
+
+	loaded = true;
+	loading.join();
+	win.setActive(true);
 
 	while (win.isOpen())
 	{
@@ -51,7 +66,7 @@ int startNokiPhone()
 		win.draw(background);
 		win.draw(holdingHand);
 		win.draw(nokiPhone);
-	
+
 		win.draw(pointerHand);
 		win.display();
 	}

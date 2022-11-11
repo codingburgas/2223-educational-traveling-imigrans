@@ -11,6 +11,10 @@ extern int mapSize = 4;
 
 int startGame()
 {
+	// loading screen
+
+	win.setActive(false);
+	std::thread loading(loadingScreen);
 	std::string currentCountry = "gr";
 
 	sf::RectangleShape background(sf::Vector2f((float)WIDTH * mapSize, (float)HEIGHT));
@@ -21,6 +25,13 @@ int startGame()
 	player.setTexture(&playerTex);
 
 	auto europe = makeCountries();
+
+	// exit loading
+
+	loaded = true;
+	loading.join();
+	win.setActive(true);
+
 	while (win.isOpen())
 	{
 		dt = frameTime.restart();
