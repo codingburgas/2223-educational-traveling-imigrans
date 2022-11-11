@@ -30,7 +30,7 @@ int startNokiPhone()
 	nokiPhone.setPosition(WIDTH / 2.6, HEIGHT / 4-HEIGHT/6 );
 
 	sf::Texture BackgroundTex; 
-	BackgroundTex.loadFromFile("assets/background/phoneBg.png");
+	BackgroundTex.loadFromFile("assets/background/phoneBackground.png");
 	background.setTexture(&BackgroundTex);
 
 	while (win.isOpen())
