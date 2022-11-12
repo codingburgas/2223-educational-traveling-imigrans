@@ -6,20 +6,21 @@
 Building::Building() :
 	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
 	inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
-	outTexture(nullptr), inTexture(nullptr),
+	outTexture(nullptr), inTexture(nullptr), doorTopLeft(0, 0), doorBottomRight(0, 0),
 	npc(NPC())
 {
 }
 
 Building::Building(sf::RectangleShape outside, sf::RectangleShape inside, NPC npc) :
 	outside(outside), inside(inside), outTexture(nullptr), inTexture(nullptr),
+	doorTopLeft(0, 0), doorBottomRight(0, 0),
 	npc(npc)
 {
 }
 
 Building::Building(sf::Texture* outside, sf::Texture* inside, NPC npc) :
 	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH / 2.f, (float)HEIGHT / 1.2f))), inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
-	outTexture(outside), inTexture(inside),
+	outTexture(outside), inTexture(inside), doorTopLeft(0, 0), doorBottomRight(0, 0),
 	npc(npc)
 {
 
@@ -29,6 +30,7 @@ Building::Building(sf::Texture* outside, sf::Texture* inside, NPC npc) :
 
 Building::Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture* outTexture, sf::Texture* inTexture, NPC npc) :
 	outside(outside), inside(inside), outTexture(outTexture), inTexture(inTexture),
+	doorTopLeft(0, 0), doorBottomRight(0, 0),
 	npc(npc)
 {
 	outside.setTexture(outTexture);
@@ -64,12 +66,12 @@ const NPC Building::getNPC()
 
 // setters 
 
-void Building::setOutsideRect(sf::RectangleShape& rect)
+void Building::setOutsideRect(sf::RectangleShape rect)
 {
 	outside = rect;
 }
 
-void Building::setInsideRect(sf::RectangleShape& rect)
+void Building::setInsideRect(sf::RectangleShape rect)
 {
 	inside = rect;
 }
@@ -106,7 +108,20 @@ void Building::setInsideTexture(sf::Texture* texture)
 	inside.setTexture(texture);
 }
 
+void Building::setDoor(sf::Vector2f topLeft, sf::Vector2f bottomRight)
+{
+	doorTopLeft = topLeft;
+	doorBottomRight = bottomRight;
+}
+
 void Building::setNPC(NPC npc)
 {
 	this->npc = npc;
+}
+
+// methods
+
+bool Building::intersectsDoor(const sf::RectangleShape& rect)
+{
+	return rect.getGlobalBounds().intersects(sf::FloatRect(doorTopLeft.x, doorTopLeft.y, doorBottomRight.x - doorTopLeft.x, doorBottomRight.y - doorTopLeft.y));
 }

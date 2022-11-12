@@ -25,8 +25,8 @@ public:
 
 	// setters
 
-	void setOutsideRect(sf::RectangleShape& rect);
-	void setInsideRect(sf::RectangleShape& rect);
+	void setOutsideRect(sf::RectangleShape rect);
+	void setInsideRect(sf::RectangleShape rect);
 
 	void setOutsideColor(sf::Color col);
 	void setInsideColor(sf::Color col);
@@ -37,7 +37,13 @@ public:
 	void setOutsideTexture(sf::Texture* outTexture);
 	void setInsideTexture(sf::Texture* inTexture);
 
+	void setDoor(sf::Vector2f topLeft, sf::Vector2f bottomRight);
+
 	void setNPC(NPC npc);
+
+	// methods
+
+	bool intersectsDoor(const sf::RectangleShape& rect);
 
 private:
 
@@ -46,6 +52,8 @@ private:
 
 	sf::Texture* outTexture;
 	sf::Texture* inTexture;
+
+	sf::Vector2f doorTopLeft, doorBottomRight;
 
 	NPC npc;
 };

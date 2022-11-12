@@ -6,7 +6,7 @@ Country::Country() :
 {
 }
 
-sf::Texture t1, t2, t3, t4, t5, t6;
+sf::Texture t[6];
 Country::Country(std::string country)
 {
 	
@@ -25,190 +25,193 @@ Country::Country(std::string country)
 	{
 		// bank
 
-		t1.loadFromFile("assets/building/bar/outside.png");
-		t2.loadFromFile("assets/building/bar/inside.png");
+		t[0].loadFromFile("assets/building/bank/outside.png");
+		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
+		// bar
 
-		// hotel
-
-		t3.loadFromFile("assets/building/bar/outside.png");
-		t4.loadFromFile("assets/building/bar/inside.png");
-		buildings.insert({ "hotel",
-			Building(&t3,&t4) });
+		t[2].loadFromFile("assets/building/bar/outside.png");
+		t[3].loadFromFile("assets/building/bar/inside.png");
+		buildings.insert({ "bar",
+			Building(&t[2],&t[3]) });
+		
 
 		// restaurant
 
-		t5.loadFromFile("assets/building/bank/outside.png");
-		t6.loadFromFile("assets/building/bank/inside.png");
+		t[4].loadFromFile("assets/building/bar/outside.png");
+		t[5].loadFromFile("assets/building/bar/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t5,&t6) });
+			Building(&t[4],&t[5]) });
+		
 	}
 	else if (country == "it") // italy
 	{
 		// bank
 
-		t1.loadFromFile("assets/building/bar/outside.png");
-		t2.loadFromFile("assets/building/bank/inside.png");
+		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 
-		// hotel
+		// bar
 
-		t1.loadFromFile("assets/building/hotel/outside.png");
-		t2.loadFromFile("assets/building/hotel/inside.png");
-		buildings.insert({ "hotel",
-			Building(&t1,&t2) });
+		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[1].loadFromFile("assets/building/bar/inside.png");
+		buildings.insert({ "bar",
+			Building(&t[0],&t[1]) });
 
 		// restaurant
 
-		t1.loadFromFile("assets/building/restaurant/outside.png");
-		t2.loadFromFile("assets/building/restaurant/inside.png");
+		t[0].loadFromFile("assets/building/restaurant/outside.png");
+		t[1].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 	}
 	else if (country == "en") // england
 	{
 		// bank
 
-		t1.loadFromFile("assets/building/bank/outside.png");
-		t2.loadFromFile("assets/building/bank/inside.png");
+		t[0].loadFromFile("assets/building/bank/outside.png");
+		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 
-		// hotel
+		// bar
 
-		t1.loadFromFile("assets/building/hotel/outside.png");
-		t2.loadFromFile("assets/building/hotel/inside.png");
-		buildings.insert({ "hotel",
-			Building(&t1,&t2) });
+		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[1].loadFromFile("assets/building/bar/inside.png");
+		buildings.insert({ "bar",
+			Building(&t[0],&t[1]) });
 
 		// restaurant
 
-		t1.loadFromFile("assets/building/restaurant/outside.png");
-		t2.loadFromFile("assets/building/restaurant/inside.png");
+		t[0].loadFromFile("assets/building/restaurant/outside.png");
+		t[1].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 	}
 	else if (country == "fr") // france
 	{
 		// bank
 
-		t1.loadFromFile("assets/building/bank/outside.png");
-		t2.loadFromFile("assets/building/bank/inside.png");
+		t[0].loadFromFile("assets/building/bank/outside.png");
+		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 
-		// hotel
+		// bar
 
-		t1.loadFromFile("assets/building/hotel/outside.png");
-		t2.loadFromFile("assets/building/hotel/inside.png");
-		buildings.insert({ "hotel",
-			Building(&t1,&t2) });
+		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[1].loadFromFile("assets/building/bar/inside.png");
+		buildings.insert({ "bar",
+			Building(&t[0],&t[1]) });
 
 		// restaurant
 
-		t1.loadFromFile("assets/building/restaurant/outside.png");
-		t2.loadFromFile("assets/building/restaurant/inside.png");
+		t[0].loadFromFile("assets/building/restaurant/outside.png");
+		t[1].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 	}
 	else if (country == "rm") // romania
 	{
 		// bank
 
-		t1.loadFromFile("assets/building/bank/outside.png");
-		t2.loadFromFile("assets/building/bank/inside.png");
+		t[0].loadFromFile("assets/building/bank/outside.png");
+		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 
-		// hotel
+		// bar
 
-		t1.loadFromFile("assets/building/hotel/outside.png");
-		t2.loadFromFile("assets/building/hotel/inside.png");
-		buildings.insert({ "hotel",
-			Building(&t1,&t2) });
+		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[1].loadFromFile("assets/building/bar/inside.png");
+		buildings.insert({ "bar",
+			Building(&t[0],&t[1]) });
 
 		// restaurant
 
-		t1.loadFromFile("assets/building/restaurant/outside.png");
-		t2.loadFromFile("assets/building/restaurant/inside.png");
+		t[0].loadFromFile("assets/building/restaurant/outside.png");
+		t[1].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 	}
 	else if (country == "bg") // bulgaria
 	{
 		// bank
 
-		t1.loadFromFile("assets/building/bank/outside.png");
-		t2.loadFromFile("assets/building/bank/inside.png");
+		t[0].loadFromFile("assets/building/bank/outside.png");
+		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 
-		// hotel
+		// bar
 
-		t1.loadFromFile("assets/building/hotel/outside.png");
-		t2.loadFromFile("assets/building/hotel/inside.png");
-		buildings.insert({ "hotel",
-			Building(&t1,&t2) });
+		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[1].loadFromFile("assets/building/bar/inside.png");
+		buildings.insert({ "bar",
+			Building(&t[0],&t[1]) });
 
 		// restaurant
 
-		t1.loadFromFile("assets/building/restaurant/outside.png");
-		t2.loadFromFile("assets/building/restaurant/inside.png");
+		t[0].loadFromFile("assets/building/restaurant/outside.png");
+		t[1].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 	}
 	else if (country == "sp") // Spain
 	{
 		// bank
 
-		t1.loadFromFile("assets/building/bar/outside.png");
-		t2.loadFromFile("assets/building/bar/inside.png");
+		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[1].loadFromFile("assets/building/bar/inside.png");
 		buildings.insert({ "bank",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 
-		// hotel
+		// bar
 
-		t3.loadFromFile("assets/building/bar/outside.png");
-		t4.loadFromFile("assets/building/bar/inside.png");
-		buildings.insert({ "hotel",
-			Building(&t3,&t4) });
+		t[2].loadFromFile("assets/building/bar/outside.png");
+		t[3].loadFromFile("assets/building/bar/inside.png");
+		buildings.insert({ "bar",
+			Building(&t[2],&t[3]) });
 
 		// restaurant
 
-		t5.loadFromFile("assets/building/bank/outside.png");
-		t6.loadFromFile("assets/building/bank/inside.png");
+		t[4].loadFromFile("assets/building/bank/outside.png");
+		t[5].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t5,&t6) });
+			Building(&t[4],&t[5]) });
 	}
 	else // poland
 	{
 		// bank
 
-		t1.loadFromFile("assets/building/bar/outside.png");
-		t2.loadFromFile("assets/building/bar/inside.png");
+		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[1].loadFromFile("assets/building/bar/inside.png");
 		buildings.insert({ "bank",
-			Building(&t1,&t2) });
+			Building(&t[0],&t[1]) });
 
-		// hotel
+		// bar
 
-		t3.loadFromFile("assets/building/bar/outside.png");
-		t4.loadFromFile("assets/building/bar/inside.png");
-		buildings.insert({ "hotel",
-			Building(&t3,&t4) });
+		t[2].loadFromFile("assets/building/bar/outside.png");
+		t[3].loadFromFile("assets/building/bar/inside.png");
+		buildings.insert({ "bar",
+			Building(&t[2],&t[3]) });
 
 		// restaurant
 
-		t5.loadFromFile("assets/building/bank/outside.png");
-		t6.loadFromFile("assets/building/bank/inside.png");
+		t[4].loadFromFile("assets/building/bank/outside.png");
+		t[5].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t5,&t6) });
+			Building(&t[4],&t[5]) });
 	}
-	//buildings["bank"].setOutsideColor(sf::Color::Yellow);
-	//buildings["hotel"].setOutsideColor(sf::Color::Cyan);
-	//buildings["restaurant"].setOutsideColor(sf::Color::Red);
+
 	randomizeBuildingPos();
+	
+	setBuildingDoor("bank");
+	setBuildingDoor("bar");
+	setBuildingDoor("restaurant");
 }
 
 const Building Country::getBuilding(std::string building)
@@ -257,4 +260,13 @@ void Country::randomizeBuildingPos()
 			}
 		}
 	}
+}
+
+void Country::setBuildingDoor(std::string building)
+{
+	buildings.at(building).setDoor(
+		sf::Vector2f(buildings.at(building).getOutsideRect().getPosition().x +
+			4.172f * buildings.at(building).getOutsideRect().getSize().x / 10.344, 0),
+		sf::Vector2f(buildings.at(building).getOutsideRect().getPosition().x +
+			6.172f * buildings.at(building).getOutsideRect().getSize().x / 10.344, HEIGHT));
 }

@@ -55,8 +55,6 @@ int startGame()
 
 		for (auto it : europe.at("gr").getBuildings()) {
 			win.draw(it.second.getOutsideRect());
-			//std::cout << "x: "
-			//	<<it.second.getOutsideRect().getPosition().x << " y: " << it.second.getOutsideRect().getPosition().y << std::endl;
 		}
 
 		win.draw(player.getRect());

@@ -21,6 +21,7 @@ public:
 	// methods
 
 	void randomizeBuildingPos();
+	void setBuildingDoor(std::string building);
 
 private:
 	std::unordered_map<std::string, Building> buildings;
