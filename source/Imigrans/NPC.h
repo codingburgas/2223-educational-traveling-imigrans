@@ -12,7 +12,7 @@ public:
 	NPC(sf::RectangleShape body);
 	NPC(sf::RectangleShape body, sf::Texture* texture);
 
-
+	~NPC();
 	// getters
 
 	const sf::RectangleShape getRect();

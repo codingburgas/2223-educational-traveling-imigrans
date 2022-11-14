@@ -11,6 +11,7 @@ public:
 	Animation(sf::Texture* texture);
 	Animation(sf::Texture* texture, sf::Vector2u imgCount, float sTime);
 
+	~Animation();
 
 	void update(int row, float dTime, bool fRight);
 

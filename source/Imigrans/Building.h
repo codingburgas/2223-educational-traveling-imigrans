@@ -14,6 +14,8 @@ public:
 	Building(sf::Texture* outside, sf::Texture* inside, NPC npc = NPC());
 	Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture* outTexture, sf::Texture* inTexture, NPC npc = NPC());
 
+	~Building();
+
 	// getters
 	const sf::RectangleShape getOutsideRect();
 	const sf::RectangleShape getInsideRect();

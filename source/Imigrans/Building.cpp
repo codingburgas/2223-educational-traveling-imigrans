@@ -37,6 +37,13 @@ Building::Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Te
 	inside.setTexture(inTexture);
 }
 
+Building::~Building()
+{
+	//delete outTexture;
+	//delete inTexture;
+	//npc.~NPC();
+}
+
 // getters
 
 const sf::RectangleShape Building::getOutsideRect()

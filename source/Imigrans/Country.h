@@ -9,6 +9,7 @@ public:
 	Country();
 	Country(std::string country);
 
+	~Country();
 	// getters
 	const Building getBuilding(std::string building);
 	const std::unordered_map<std::string, Building> getBuildings();

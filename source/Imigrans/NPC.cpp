@@ -27,6 +27,11 @@ NPC::NPC(sf::RectangleShape body, sf::Texture* texture) :
 	body.setTexture(texture);
 }
 
+
+NPC::~NPC()
+{
+	delete texture;
+}
 // getters
 
 const sf::RectangleShape NPC::getRect()

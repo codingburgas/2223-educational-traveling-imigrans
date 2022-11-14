@@ -23,7 +23,7 @@ Animation::Animation(sf::Texture* texture, sf::Vector2u imgCount, float sTime) :
 	uvRect.height = texture->getSize().y / imgCount.y;
 }
 
-
+Animation::~Animation(){}
 
 void Animation::update(int row, float dTime, bool fRight)
 {

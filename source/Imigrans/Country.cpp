@@ -214,6 +214,11 @@ Country::Country(std::string country)
 	setBuildingDoor("restaurant");
 }
 
+Country::~Country()
+{
+
+}
+
 const Building Country::getBuilding(std::string building)
 {
 	if (buildings.find(building) != buildings.end())
