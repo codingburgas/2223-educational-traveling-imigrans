@@ -32,12 +32,12 @@ void Animation::update(int row, float dTime, bool fRight)
 
 	if (tTime >= sTime)
 	{
-		tTime -= sTime; //makes animation smoother 
+		tTime -= sTime; // makes animation smoother 
 		if (aforward)
 			currentImg.x++;
 		else
 			currentImg.x--;
-		if (currentImg.x >= imgCount.x)//ask niki
+		if (currentImg.x >= imgCount.x)
 		{
 			aforward = false;
 			currentImg.x = imgCount.x-2;

@@ -2,14 +2,13 @@
 #include <cmath>
 
 bool loaded = false;
-sf::Texture loadingTex;
+sf::Texture *loadingTex = new sf::Texture();
 void loadingScreen()
 {
 	sf::Clock timeElapsed;
 	loaded = false;
-	loadingTex.loadFromFile("assets/background/loading.png");
-	sf::Sprite loading;
-	loading.setScale(1,1.001);
+	loadingTex->loadFromFile("assets/background/loading.png");
+	sf::RectangleShape loading(sf::Vector2f(WIDTH,HEIGHT + 1));
 	loading.setTexture(loadingTex);
 	win.setActive(true); // set window as an OpenGL render target
 		win.clear(sf::Color::White);
