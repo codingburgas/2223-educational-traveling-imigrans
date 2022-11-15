@@ -26,8 +26,8 @@ private:
 	sf::Vector2u imgCount;
 	sf::Vector2u currentImg;
 	bool aforward = true;
-	float tTime;
-	float sTime;
+	float tTime;//totalTime
+	float sTime;//switchTime
 	
 };
 

@@ -3,6 +3,6 @@
 int main()
 {
 	win.setVerticalSyncEnabled(true);
-	win.setFramerateLimit(120);
+	win.setFramerateLimit(420);
 	manageScreen(startNokiPhone);
 }

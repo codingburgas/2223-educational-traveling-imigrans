@@ -8,8 +8,8 @@ int startNokiMap()
 	std::thread loading(loadingScreen);
 
 	// prolong loading
-	//using namespace std::chrono_literals;
-	//std::this_thread::sleep_for(3000ms);`
+	using namespace std::chrono_literals;
+	std::this_thread::sleep_for(1500ms);
 
 	sf::RectangleShape background(sf::Vector2f((float)WIDTH, (float)HEIGHT));
 	background.setFillColor(sf::Color::White);
@@ -19,7 +19,7 @@ int startNokiMap()
 	sf::RectangleShape pointerHand(sf::Vector2f((float)WIDTH / 3.f, (float)HEIGHT));
 
 
-	win.setMouseCursorVisible(true); // Hide cursor
+	win.setMouseCursorVisible(false); // Hide cursor
 	sf::View fixed = win.getView(); // Create a fixed view
 
 	// Load image and create sprite
@@ -78,7 +78,7 @@ int startNokiMap()
 		win.draw(nokiPhone);
 		win.draw(map);
 
-		currency(sf::Vector2f(WIDTH / 1.15, HEIGHT / 110));
+		
 		win.draw(pointerHand);
 		win.display();
 	}

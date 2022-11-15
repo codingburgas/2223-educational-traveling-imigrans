@@ -65,7 +65,7 @@ int startGame()
 		win.draw(bg1);
 		win.draw(bg2);
 
-		for (auto it : europe.at("gr").getBuildings()) {
+		for (auto it : europe.at(currentCountry).getBuildings()) {
 			win.draw(it.second.getOutsideRect());
 		}
 

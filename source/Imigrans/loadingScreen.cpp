@@ -1,26 +1,38 @@
 #include "main.h"
 #include <cmath>
+#include"Animation.h"
 
 bool loaded = false;
-sf::Texture *loadingTex = new sf::Texture();
+sf::Texture loadingTex;
 void loadingScreen()
 {
-	sf::Clock timeElapsed;
+	int timeElapsed = 0;
 	loaded = false;
-	loadingTex->loadFromFile("assets/background/loading.png");
-	sf::RectangleShape loading(sf::Vector2f(WIDTH,HEIGHT + 1));
-	loading.setTexture(loadingTex);
-	win.setActive(true); // set window as an OpenGL render target
+	loadingTex.loadFromFile("assets/background/loadingSpriteSheet.png");
+	sf::RectangleShape loading(sf::Vector2f((float)WIDTH, (float)HEIGHT + 1.f));
+	loading.setTexture(&loadingTex);
+	Animation loadingAnimation(&loadingTex, sf::Vector2u(3, 1), 0.01f); 
+
+	sf::Clock deltaTime;
+	while (true)
+	{
+		timeElapsed += deltaTime.restart().asMilliseconds();
+		if (loaded) // wait for loaded to be set to true
+		{
+
+			std::cout << "\nLoading took: " << timeElapsed << "ms\n";
+			return; // exit the thread
+
+
+		}
+		std::cout << " "; //mc Hammer says can't touch this
+		loadingAnimation.update(0, deltaTime.getElapsedTime().asSeconds(), true);
+		loading.setTextureRect(loadingAnimation.uvRect);
+		win.setActive(true); // set window as an OpenGL render target
 		win.clear(sf::Color::White);
 		win.draw(loading);
 		win.display();
-	win.setActive(false);
-	while (true)
-	{
-		if (loaded) // wait for loaded to be set to true
-		{
-			std::cout << "Loading took: " << timeElapsed.getElapsedTime().asMilliseconds() << "ms\n";
-			return; // exit the thread
-		}
+		win.setActive(false);
 	}
+	
 }

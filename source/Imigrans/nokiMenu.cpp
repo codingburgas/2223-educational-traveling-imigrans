@@ -7,9 +7,9 @@ int startNokiPhone()
 	win.setActive(false);
 	std::thread loading(loadingScreen);
 
-	// prolong loading
-	//using namespace std::chrono_literals;
-	//std::this_thread::sleep_for(3000ms);
+	//prolong loading
+	using namespace std::chrono_literals;
+	std::this_thread::sleep_for(1000ms);
 
 	sf::RectangleShape background(sf::Vector2f((float)WIDTH, (float)HEIGHT));
 	background.setFillColor(sf::Color::White);
@@ -106,7 +106,7 @@ int startNokiPhone()
 		win.draw(guideButton);
 		win.draw(exitButton);
 
-		currency(sf::Vector2f(WIDTH / 1.15, HEIGHT/110));
+		
 		win.draw(pointerHand);
 		win.display();
 	}
