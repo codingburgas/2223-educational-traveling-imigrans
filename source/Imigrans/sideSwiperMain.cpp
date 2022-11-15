@@ -70,6 +70,7 @@ int startGame()
 		}
 
 		win.draw(player.getRect());
+		
 		win.display();
 	}
 	return 0;
