@@ -13,6 +13,7 @@ int mainMenu();
 int startGame();
 int startNokiPhone();
 int startNokiMap();
+int startGuide();
 void loadingScreen();
 void currency(sf::Vector2f pos);
 void valueManager(char sym, int sum);

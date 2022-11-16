@@ -84,7 +84,7 @@ int startNokiPhone()
 			}
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && guideButton.getGlobalBounds().contains(mpos))
 			{
-				//open guide...
+				return 5;
 
 			}
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && exitButton.getGlobalBounds().contains(mpos))

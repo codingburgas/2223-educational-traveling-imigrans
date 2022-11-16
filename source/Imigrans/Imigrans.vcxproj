@@ -154,6 +154,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Country.cpp" />
+    <ClCompile Include="Guide.cpp" />
     <ClCompile Include="loadingScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainMenu.cpp" />

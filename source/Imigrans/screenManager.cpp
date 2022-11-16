@@ -23,6 +23,9 @@ int manageScreen(std::function<int()> func)
 	case 4:
 		manageScreen(startNokiMap);
 		break;
+	case 5:
+		manageScreen(startGuide);
+		break;
 	default: // error
 	
 		std::cout << "Error Wrong return value at " << &func << "\n";
