@@ -35,7 +35,7 @@ int startGuide()
 
 
 	sf::Texture BackgroundTex;
-	BackgroundTex.loadFromFile("assets/phone/rotated.png");
+	BackgroundTex.loadFromFile("assets/nokiTech/rotated.png");
 	background.setTexture(&BackgroundTex);
 
 

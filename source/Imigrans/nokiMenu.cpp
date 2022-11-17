@@ -36,7 +36,7 @@ int startNokiPhone()
 	holdingHand.setPosition((float)WIDTH / 2.f - (float)WIDTH / 4.f, (float)HEIGHT / 5.f);
 
 	sf::Texture nokiPhoneTex;
-	nokiPhoneTex.loadFromFile("assets/phone/empty.png");
+	nokiPhoneTex.loadFromFile("assets/nokiTech/empty.png");
 	nokiPhone.setTexture(&nokiPhoneTex);
 	nokiPhone.setPosition((float)WIDTH / 2.6f, (float)HEIGHT / 4.f - (float)HEIGHT / 6.f);
 

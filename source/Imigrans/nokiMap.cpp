@@ -100,7 +100,7 @@ int startNokiMap()
 	pointerHand.setOrigin(sf::Vector2f((float)WIDTH / 10, (float)HEIGHT / 15));
 
 	sf::Texture nokiPhoneTex;
-	nokiPhoneTex.loadFromFile("assets/phone/rotated.png");
+	nokiPhoneTex.loadFromFile("assets/nokiTech/rotated.png");
 	nokiPhone.setTexture(&nokiPhoneTex);
 	
 	
