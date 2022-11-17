@@ -7,7 +7,6 @@ sf::Time dt;
 sf::Texture playerTex;
 std::vector<std::string> countries = { "gr", "it","en","fr","rm","bg","sp","pl"};
 std::string currentCountry = countries.at(0);
-
 Player player(&playerTex, sf::Vector2u(3/*collumn*/, 2/*row*/), 0.3f, 1.f);
 extern int mapSize = 4;
 std::unordered_map<std::string, Country> europe;
@@ -56,7 +55,7 @@ int startGame()
 
 		player.update();
 		switchBgPlaces(player, bg1, bg2);
-
+		std::cout << currentCountry;
 		win.setView(player.getView());
 		player.setViewCenter(sf::Vector2f(player.getRect().getPosition().x + player.getRect().getSize().x / 2,
 			player.getRect().getPosition().y - player.getRect().getSize().y / 3));

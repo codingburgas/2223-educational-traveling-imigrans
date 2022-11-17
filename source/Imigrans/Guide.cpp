@@ -16,6 +16,12 @@ int startGuide()
 	background.setFillColor(sf::Color::White);
 
 	sf::RectangleShape pointerHand(sf::Vector2f((float)WIDTH / 3.f, (float)HEIGHT));
+	sf::RectangleShape exitButton(sf::Vector2f((float)WIDTH / 4.5f, (float)HEIGHT / 9.31));
+	exitButton.setFillColor(sf::Color::Red); 
+	sf::Texture exitButtonTex;
+	exitButtonTex.loadFromFile("assets/buttons/exit.png");
+	exitButton.setTexture(&exitButtonTex);
+	exitButton.setPosition(sf::Vector2f((float)WIDTH / 1.75, (float)HEIGHT / 1.2f));
 
 
 	win.setMouseCursorVisible(false); // Hide cursor
@@ -37,7 +43,7 @@ int startGuide()
 	font.loadFromFile("assets/font/Teko-Regular.ttf");
 	sf::Text text;
 	text.setCharacterSize(64.f);
-	text.setString("Hello player, welcome to our game.\n You control the character with 'W', 'A' , 'S' , 'D' or the arrows.\n You have to press the button 'E' to enter door and talk to the NPC's.\n You complete the game buy going trough all the countries.\nThe point of the game is to come up with strategy for gaining money.");
+	text.setString("Hello world, welcome to our game.\n You control the character with  'A' and 'D' or the arrows.\n You have to press the button 'E' to enter doors and talk to the NPC's.\n You complete the game by going trough 5 of the countries.\nThe point of the game is to come up with a strategy for gaining money.");
 	text.setFont(font);
 	text.setFillColor(sf::Color::Green);
 	text.setOutlineColor(sf::Color::White);
@@ -55,18 +61,20 @@ int startGuide()
 		sf::Event e;
 		while (win.pollEvent(e))
 		{
+			auto mpos = win.mapPixelToCoords(sf::Mouse::getPosition(win));
 
 			if (e.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				return 3;
-			if (e.type == sf::Event::MouseButtonPressed && sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				return 3;
-
+		
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && exitButton.getGlobalBounds().contains(mpos))
+			return 3;
+			
 		}
 		pointerHand.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(win)));
 		win.clear(sf::Color::White);
 		win.setView(fixed);
 		win.draw(background);
-		//win.draw(nokiPhone);
+		win.draw(exitButton);
 		win.draw(text);
 
 		win.draw(pointerHand);

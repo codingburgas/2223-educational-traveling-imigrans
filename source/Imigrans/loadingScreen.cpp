@@ -25,6 +25,10 @@ void loadingScreen()
 
 
 		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+			exit(0);// close
+
 		std::cout << " "; //mc Hammer says can't touch this
 		loadingAnimation.update(0, deltaTime.getElapsedTime().asSeconds(), true);
 		loading.setTextureRect(loadingAnimation.uvRect);
