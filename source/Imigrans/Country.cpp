@@ -39,10 +39,10 @@ Country::Country(std::string country)
 
 		// restaurant
 
-		t[4].loadFromFile("assets/building/bar/outside.png");
-		t[5].loadFromFile("assets/building/bar/inside.png");
+		t[4].loadFromFile("assets/building/restaurant/outside.png");
+		t[5].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t[4],&t[5]) });
+			Building(&t[4],&t[5], true) });
 		
 	}
 	else if (country == "it") // italy
@@ -56,17 +56,17 @@ Country::Country(std::string country)
 
 		// bar
 
-		t[0].loadFromFile("assets/building/bar/outside.png");
-		t[1].loadFromFile("assets/building/bar/inside.png");
+		t[2].loadFromFile("assets/building/bar/outside.png");
+		t[3].loadFromFile("assets/building/bar/inside.png");
 		buildings.insert({ "bar",
-			Building(&t[0],&t[1]) });
+			Building(&t[2],&t[3]) });
 
 		// restaurant
 
-		t[0].loadFromFile("assets/building/restaurant/outside.png");
-		t[1].loadFromFile("assets/building/restaurant/inside.png");
+		t[4].loadFromFile("assets/building/restaurant/outside.png");
+		t[5].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t[0],&t[1]) });
+			Building(&t[4],&t[5], true) });
 	}
 	else if (country == "en") // england
 	{
@@ -79,17 +79,17 @@ Country::Country(std::string country)
 
 		// bar
 
-		t[0].loadFromFile("assets/building/bar/outside.png");
-		t[1].loadFromFile("assets/building/bar/inside.png");
+		t[2].loadFromFile("assets/building/bar/outside.png");
+		t[3].loadFromFile("assets/building/bar/inside.png");
 		buildings.insert({ "bar",
-			Building(&t[0],&t[1]) });
+			Building(&t[2],&t[3]) });
 
 		// restaurant
 
-		t[0].loadFromFile("assets/building/restaurant/outside.png");
-		t[1].loadFromFile("assets/building/restaurant/inside.png");
+		t[4].loadFromFile("assets/building/restaurant/outside.png");
+		t[5].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t[0],&t[1]) });
+			Building(&t[4],&t[5], true) });
 	}
 	else if (country == "fr") // france
 	{
@@ -102,17 +102,17 @@ Country::Country(std::string country)
 
 		// bar
 
-		t[0].loadFromFile("assets/building/bar/outside.png");
-		t[1].loadFromFile("assets/building/bar/inside.png");
+		t[2].loadFromFile("assets/building/bar/outside.png");
+		t[3].loadFromFile("assets/building/bar/inside.png");
 		buildings.insert({ "bar",
-			Building(&t[0],&t[1]) });
+			Building(&t[2],&t[3]) });
 
 		// restaurant
 
-		t[0].loadFromFile("assets/building/restaurant/outside.png");
-		t[1].loadFromFile("assets/building/restaurant/inside.png");
+		t[4].loadFromFile("assets/building/restaurant/outside.png");
+		t[5].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t[0],&t[1]) });
+			Building(&t[4],&t[5], true) });
 	}
 	else if (country == "rm") // romania
 	{
@@ -125,17 +125,17 @@ Country::Country(std::string country)
 
 		// bar
 
-		t[0].loadFromFile("assets/building/bar/outside.png");
-		t[1].loadFromFile("assets/building/bar/inside.png");
+		t[2].loadFromFile("assets/building/bar/outside.png");
+		t[3].loadFromFile("assets/building/bar/inside.png");
 		buildings.insert({ "bar",
-			Building(&t[0],&t[1]) });
+			Building(&t[2],&t[3]) });
 
 		// restaurant
 
-		t[0].loadFromFile("assets/building/restaurant/outside.png");
-		t[1].loadFromFile("assets/building/restaurant/inside.png");
+		t[4].loadFromFile("assets/building/restaurant/outside.png");
+		t[5].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t[0],&t[1]) });
+			Building(&t[4],&t[5], true) });
 	}
 	else if (country == "bg") // bulgaria
 	{
@@ -148,24 +148,24 @@ Country::Country(std::string country)
 
 		// bar
 
-		t[0].loadFromFile("assets/building/bar/outside.png");
-		t[1].loadFromFile("assets/building/bar/inside.png");
+		t[2].loadFromFile("assets/building/bar/outside.png");
+		t[3].loadFromFile("assets/building/bar/inside.png");
 		buildings.insert({ "bar",
-			Building(&t[0],&t[1]) });
+			Building(&t[2],&t[3]) });
 
 		// restaurant
 
-		t[0].loadFromFile("assets/building/restaurant/outside.png");
-		t[1].loadFromFile("assets/building/restaurant/inside.png");
+		t[4].loadFromFile("assets/building/restaurant/outside.png");
+		t[5].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t[0],&t[1]) });
+			Building(&t[4],&t[5], true) });
 	}
 	else if (country == "sp") // Spain
 	{
 		// bank
 
-		t[0].loadFromFile("assets/building/bar/outside.png");
-		t[1].loadFromFile("assets/building/bar/inside.png");
+		t[0].loadFromFile("assets/building/bank/outside.png");
+		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
 			Building(&t[0],&t[1]) });
 
@@ -178,17 +178,17 @@ Country::Country(std::string country)
 
 		// restaurant
 
-		t[4].loadFromFile("assets/building/bank/outside.png");
-		t[5].loadFromFile("assets/building/bank/inside.png");
+		t[4].loadFromFile("assets/building/restaurant/outside.png");
+		t[5].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t[4],&t[5]) });
+			Building(&t[4],&t[5], true) });
 	}
 	else // poland
 	{
 		// bank
 
-		t[0].loadFromFile("assets/building/bar/outside.png");
-		t[1].loadFromFile("assets/building/bar/inside.png");
+		t[0].loadFromFile("assets/building/bank/outside.png");
+		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
 			Building(&t[0],&t[1]) });
 
@@ -201,10 +201,10 @@ Country::Country(std::string country)
 
 		// restaurant
 
-		t[4].loadFromFile("assets/building/bank/outside.png");
-		t[5].loadFromFile("assets/building/bank/inside.png");
+		t[4].loadFromFile("assets/building/restaurant/outside.png");
+		t[5].loadFromFile("assets/building/restaurant/inside.png");
 		buildings.insert({ "restaurant",
-			Building(&t[4],&t[5]) });
+			Building(&t[4],&t[5], true) });
 	}
 
 	randomizeBuildingPos();

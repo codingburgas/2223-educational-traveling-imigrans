@@ -11,14 +11,14 @@ int startNokiPhone()
 	using namespace std::chrono_literals;
 	std::this_thread::sleep_for(1000ms);
 
-	sf::RectangleShape background(sf::Vector2f((float)WIDTH, (float)HEIGHT));
+	sf::RectangleShape background(sf::Vector2f(WIDTH, HEIGHT));
 	background.setFillColor(sf::Color::White);
-	sf::RectangleShape holdingHand(sf::Vector2f((float)WIDTH / 3.f, (float)HEIGHT));
-	sf::RectangleShape nokiPhone(sf::Vector2f((float)WIDTH / 4.f, (float)HEIGHT / 1.2f));
-	sf::RectangleShape playButton(sf::Vector2f((float)WIDTH / 4.5f, (float)HEIGHT / 9.31));
-	sf::RectangleShape guideButton(sf::Vector2f((float)WIDTH / 4.5f, (float)HEIGHT / 9.31));
-	sf::RectangleShape exitButton(sf::Vector2f((float)WIDTH / 4.5f, (float)HEIGHT / 9.31));
-	sf::RectangleShape pointerHand(sf::Vector2f((float)WIDTH / 3.f, (float)HEIGHT));
+	sf::RectangleShape holdingHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
+	sf::RectangleShape nokiPhone(sf::Vector2f(WIDTH / 4.f, HEIGHT / 1.2f));
+	sf::RectangleShape playButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31));
+	sf::RectangleShape guideButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31));
+	sf::RectangleShape exitButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31));
+	sf::RectangleShape pointerHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
 
 
 	win.setMouseCursorVisible(false); // Hide cursor
@@ -33,12 +33,12 @@ int startNokiPhone()
 	sf::Texture holderTex;
 	holderTex.loadFromFile("assets/hand/phoneHolder.png");
 	holdingHand.setTexture(&holderTex);
-	holdingHand.setPosition((float)WIDTH / 2.f - (float)WIDTH / 4.f, (float)HEIGHT / 5.f);
+	holdingHand.setPosition(WIDTH / 2.f - WIDTH / 4.f, HEIGHT / 5.f);
 
 	sf::Texture nokiPhoneTex;
 	nokiPhoneTex.loadFromFile("assets/nokiTech/empty.png");
 	nokiPhone.setTexture(&nokiPhoneTex);
-	nokiPhone.setPosition((float)WIDTH / 2.6f, (float)HEIGHT / 4.f - (float)HEIGHT / 6.f);
+	nokiPhone.setPosition(WIDTH / 2.6f, HEIGHT / 4.f - HEIGHT / 6.f);
 
 	sf::Texture BackgroundTex;
 	BackgroundTex.loadFromFile("assets/background/phoneBackground.png");
@@ -48,17 +48,17 @@ int startNokiPhone()
 	sf::Texture playButtonTex;
 	playButtonTex.loadFromFile("assets/buttons/play.png");
 	playButton.setTexture(&playButtonTex);
-	playButton.setPosition(sf::Vector2f((float)WIDTH / 2.51f, (float)HEIGHT / 4.0f));
+	playButton.setPosition(sf::Vector2f(WIDTH / 2.51f, HEIGHT / 4.0f));
 
 	sf::Texture guideButtonTex;
 	guideButtonTex.loadFromFile("assets/buttons/guide.png");
 	guideButton.setTexture(&guideButtonTex);
-	guideButton.setPosition(sf::Vector2f((float)WIDTH / 2.51f, (float)HEIGHT / 2.5f));
+	guideButton.setPosition(sf::Vector2f(WIDTH / 2.51f, HEIGHT / 2.5f));
 
 	sf::Texture exitButtonTex;
 	exitButtonTex.loadFromFile("assets/buttons/exit.png");
 	exitButton.setTexture(&exitButtonTex);
-	exitButton.setPosition(sf::Vector2f((float)WIDTH / 2.51f, (float)HEIGHT / 1.75f));
+	exitButton.setPosition(sf::Vector2f(WIDTH / 2.51f, HEIGHT / 1.75f));
 	// exit loading
 
 	loaded = true;
@@ -110,6 +110,5 @@ int startNokiPhone()
 		win.draw(pointerHand);
 		win.display();
 	}
-
 }
 

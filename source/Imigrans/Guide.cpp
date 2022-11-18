@@ -12,16 +12,16 @@ int startGuide()
 	using namespace std::chrono_literals;
 	std::this_thread::sleep_for(100ms);
 
-	sf::RectangleShape background(sf::Vector2f((float)WIDTH, (float)HEIGHT));
+	sf::RectangleShape background(sf::Vector2f(WIDTH, HEIGHT));
 	background.setFillColor(sf::Color::White);
 
-	sf::RectangleShape pointerHand(sf::Vector2f((float)WIDTH / 3.f, (float)HEIGHT));
-	sf::RectangleShape exitButton(sf::Vector2f((float)WIDTH / 4.5f, (float)HEIGHT / 9.31));
+	sf::RectangleShape pointerHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
+	sf::RectangleShape exitButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31f));
 	exitButton.setFillColor(sf::Color::Red); 
 	sf::Texture exitButtonTex;
 	exitButtonTex.loadFromFile("assets/buttons/exit.png");
 	exitButton.setTexture(&exitButtonTex);
-	exitButton.setPosition(sf::Vector2f((float)WIDTH / 1.75, (float)HEIGHT / 1.2f));
+	exitButton.setPosition(sf::Vector2f(WIDTH / 1.75f, HEIGHT / 1.2f));
 
 
 	win.setMouseCursorVisible(false); // Hide cursor
@@ -31,7 +31,7 @@ int startGuide()
 	sf::Texture cursorTex;
 	cursorTex.loadFromFile("assets/hand/cursor.png");
 	pointerHand.setTexture(&cursorTex);
-	pointerHand.setOrigin(sf::Vector2f((float)WIDTH / 10, (float)HEIGHT / 15));
+	pointerHand.setOrigin(sf::Vector2f(WIDTH / 10.f, HEIGHT / 15.f));
 
 
 	sf::Texture BackgroundTex;

@@ -8,7 +8,7 @@ int currencyCount = 1000;
 void currency(sf::Vector2f pos)
 {
 	
-		sf::RectangleShape currency(sf::Vector2f((float)WIDTH / 16, (float)HEIGHT / 8));
+		sf::RectangleShape currency(sf::Vector2f(WIDTH / 16, HEIGHT / 8));
 
 		sf::Texture currencyTex;
 		currencyTex.loadFromFile("assets/currency/currency.png");

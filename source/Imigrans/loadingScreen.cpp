@@ -9,9 +9,9 @@ void loadingScreen()
 	int timeElapsed = 0;
 	loaded = false;
 	loadingTex.loadFromFile("assets/background/loadingSpriteSheet.png");
-	sf::RectangleShape loading(sf::Vector2f((float)WIDTH, (float)HEIGHT + 1.f));
+	sf::RectangleShape loading(sf::Vector2f(WIDTH, HEIGHT + 1.f));
 	loading.setTexture(&loadingTex);
-	Animation loadingAnimation(&loadingTex, sf::Vector2u(3, 1), 0.01f); 
+	Animation loadingAnimation(&loadingTex, sf::Vector2u(3, 1), 0.0002f); // ne baray nulite
 
 	sf::Clock deltaTime;
 	while (true)
@@ -29,8 +29,7 @@ void loadingScreen()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			exit(0);// close
 
-		std::cout << " "; //mc Hammer says can't touch this
-		loadingAnimation.update(0, deltaTime.getElapsedTime().asSeconds(), true);
+		loadingAnimation.update(0, 0.000001f, true); // ne baray nulite
 		loading.setTextureRect(loadingAnimation.uvRect);
 		win.setActive(true); // set window as an OpenGL render target
 		win.clear(sf::Color::White);
@@ -38,5 +37,4 @@ void loadingScreen()
 		win.display();
 		win.setActive(false);
 	}
-	
 }

@@ -20,5 +20,7 @@ void valueManager(char sym, int sum);
 void setCurrentCountry(std::string);
 extern bool loaded;
 
-const int WIDTH = sf::VideoMode::getDesktopMode().width, HEIGHT = sf::VideoMode::getDesktopMode().height;
+const float 
+	WIDTH = (float)sf::VideoMode::getDesktopMode().width, 
+	HEIGHT = (float)sf::VideoMode::getDesktopMode().height;
 extern sf::RenderWindow win;

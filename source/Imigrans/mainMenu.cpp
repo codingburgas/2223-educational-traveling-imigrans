@@ -3,7 +3,7 @@ using namespace sf;
 
 int mainMenu()
 {
-	float bWidth = (float)WIDTH / 4, bHeight = (float)HEIGHT / 4;
+	float bWidth = WIDTH / 4, bHeight = HEIGHT / 4;
 	RectangleShape button(Vector2f(bWidth, bHeight));
 
 	button.setFillColor(Color::Green);

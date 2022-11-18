@@ -1,6 +1,6 @@
 #include "main.h"
 
-sf::RenderWindow win(sf::VideoMode(WIDTH, HEIGHT), "Imigrans", sf::Style::None);
+sf::RenderWindow win(sf::VideoMode((unsigned)WIDTH, (unsigned)HEIGHT), "Imigrans", sf::Style::None);
 
 int manageScreen(std::function<int()> func)
 {

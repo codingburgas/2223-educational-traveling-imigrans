@@ -4,8 +4,8 @@
 // constructors
 
 Building::Building() :
-	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
-	inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
+	outside(sf::RectangleShape(sf::Vector2f(WIDTH, HEIGHT))),
+	inside(sf::RectangleShape(sf::Vector2f(WIDTH, HEIGHT))),
 	outTexture(nullptr), inTexture(nullptr), doorTopLeft(0, 0), doorBottomRight(0, 0),
 	npc(NPC())
 {
@@ -18,21 +18,22 @@ Building::Building(sf::RectangleShape outside, sf::RectangleShape inside, NPC np
 {
 }
 
-Building::Building(sf::Texture* outside, sf::Texture* inside, NPC npc) :
-	outside(sf::RectangleShape(sf::Vector2f((float)WIDTH / 2.f, (float)HEIGHT / 1.2f))), inside(sf::RectangleShape(sf::Vector2f((float)WIDTH, (float)HEIGHT))),
+Building::Building(sf::Texture* outside, sf::Texture* inside, bool restaurant, NPC npc) :
+	outside(sf::RectangleShape(sf::Vector2f(WIDTH / 2.f, HEIGHT / 1.2f))), inside(sf::RectangleShape(sf::Vector2f(WIDTH, HEIGHT))),
 	outTexture(outside), inTexture(inside), doorTopLeft(0, 0), doorBottomRight(0, 0),
 	npc(npc)
 {
-
+	if (restaurant) this->outside.setSize(sf::Vector2f(WIDTH, HEIGHT / 1.2f));
 	this->outside.setTexture(outside);
 	this->inside.setTexture(inside);
 }
 
-Building::Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture* outTexture, sf::Texture* inTexture, NPC npc) :
+Building::Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture* outTexture, sf::Texture* inTexture, bool restaurant, NPC npc) :
 	outside(outside), inside(inside), outTexture(outTexture), inTexture(inTexture),
 	doorTopLeft(0, 0), doorBottomRight(0, 0),
 	npc(npc)
 {
+	if (restaurant) this->outside.setSize(sf::Vector2f(WIDTH, HEIGHT / 1.2f));
 	outside.setTexture(outTexture);
 	inside.setTexture(inTexture);
 }
