@@ -4,7 +4,7 @@
 
 Player::Player() :
 	body(sf::RectangleShape()), texture(nullptr), velocity(sf::Vector2f(0.f, 0.f)), animation(),
-	row(0), mSpeed(WIDTH / 3.84f), fRight(true), inside(false)
+	row(0), mSpeed(WIDTH / 3.84f), fRight(true)
 {
 	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
 	//body.setFillColor(sf::Color::Green);
@@ -15,7 +15,7 @@ Player::Player() :
 
 Player::Player(sf::RectangleShape body) :
 	body(body), texture(nullptr), velocity(sf::Vector2f(0.f, 0.f)), animation(),
-	row(0), mSpeed(WIDTH / 3.84f), fRight(true), inside(false)
+	row(0), mSpeed(WIDTH / 3.84f), fRight(true)
 {
 	follow.setCenter(sf::Vector2f(body.getSize().x / 2, body.getSize().y / 2));
 	follow.setSize(sf::Vector2f(WIDTH, HEIGHT));
@@ -23,7 +23,7 @@ Player::Player(sf::RectangleShape body) :
 
 Player::Player(sf::Texture* texture, sf::Vector2u imgCount, float sTime, float mSpeed) :
 	body(sf::RectangleShape()), texture(texture), velocity(sf::Vector2f()), animation(texture, imgCount, sTime),
-	row(0), mSpeed(mSpeed * WIDTH / 3.84f), fRight(true), inside(false)
+	row(0), mSpeed(mSpeed * WIDTH / 3.84f), fRight(true)
 {
 	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
 	//body.setFillColor(sf::Color::Green);
@@ -95,6 +95,11 @@ const sf::View Player::getView()
 	return follow;
 }
 
+const bool Player::isInside()
+{
+	return inside;
+}
+
 // setters
 
 // rect
@@ -130,4 +135,9 @@ void Player::setViewSize(sf::Vector2f size)
 void Player::setViewCenter(sf::Vector2f center)
 {
 	follow.setCenter(center);
+}
+
+void Player::setInside(bool in)
+{
+	inside = in;
 }

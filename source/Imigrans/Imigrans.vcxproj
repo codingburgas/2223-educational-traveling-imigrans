@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Building.cpp" />
+    <ClCompile Include="buildingsInside.cpp" />
     <ClCompile Include="Country.cpp" />
     <ClCompile Include="Guide.cpp" />
     <ClCompile Include="loadingScreen.cpp" />

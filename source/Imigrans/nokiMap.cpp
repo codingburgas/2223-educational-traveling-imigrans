@@ -152,43 +152,43 @@ int startNokiMap()
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("gr").getGlobalBounds().contains(mpos))
 			{
-				setCurrentCountry("gr");
+				currentCountry = "gr";
 				return 2; 
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && (cButtons.at("it").getGlobalBounds().contains(mpos) || cButtons.at("it2").getGlobalBounds().contains(mpos)))
 			{
-				setCurrentCountry("it");
+				currentCountry = "it";
 				return 2;
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("en").getGlobalBounds().contains(mpos))
 			{
-				setCurrentCountry("en");
+				currentCountry = "en";
 				return 2;
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("fr").getGlobalBounds().contains(mpos))
 			{
-				setCurrentCountry("fr");
+				currentCountry = "fr";
 				return 2;
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("rm").getGlobalBounds().contains(mpos))
 			{
-				setCurrentCountry("rm");
+				currentCountry = "rm";
 				return 2;
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("bg").getGlobalBounds().contains(mpos))
 			{
-				setCurrentCountry("bg");
+				currentCountry = "bg";
 				return 2;
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("sp").getGlobalBounds().contains(mpos))
 			{
-				setCurrentCountry("sp");
+				currentCountry = "sp";
 				return 2;
 
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("pl").getGlobalBounds().contains(mpos))
 			{
-				setCurrentCountry("pl");
+				currentCountry = "pl";
 				return 2;
 			}
 

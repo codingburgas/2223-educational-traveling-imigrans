@@ -17,6 +17,7 @@ public:
 	// setters
 
 	void setBuildings(std::unordered_map<std::string, Building> &buildings);
+	void setBuildingsInPos(float y);
 	void setBuildings(std::unordered_map<std::string, Building> buildings);
 	
 	// methods

@@ -17,8 +17,9 @@ int startGuide();
 void loadingScreen();
 void currency(sf::Vector2f pos);
 void valueManager(char sym, int sum);
-void setCurrentCountry(std::string);
+
 extern bool loaded;
+extern std::string currentCountry;
 
 const float 
 	WIDTH = (float)sf::VideoMode::getDesktopMode().width, 

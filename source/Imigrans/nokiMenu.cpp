@@ -15,9 +15,9 @@ int startNokiPhone()
 	background.setFillColor(sf::Color::White);
 	sf::RectangleShape holdingHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
 	sf::RectangleShape nokiPhone(sf::Vector2f(WIDTH / 4.f, HEIGHT / 1.2f));
-	sf::RectangleShape playButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31));
-	sf::RectangleShape guideButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31));
-	sf::RectangleShape exitButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31));
+	sf::RectangleShape playButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31f));
+	sf::RectangleShape guideButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31f));
+	sf::RectangleShape exitButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31f));
 	sf::RectangleShape pointerHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
 
 
@@ -110,5 +110,6 @@ int startNokiPhone()
 		win.draw(pointerHand);
 		win.display();
 	}
+	return 0;
 }
 

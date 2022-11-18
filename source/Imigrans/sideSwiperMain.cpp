@@ -1,11 +1,14 @@
 #include "sideSwiper.h"
+#include <unordered_map>
 
-void setCurrentCountry(std::string countryCode);
+void loadCurrentCountry(std::string countryCode);
 void switchBgPlaces(Player& p, sf::RectangleShape& bg1, sf::RectangleShape& bg2);
+
 sf::Clock frameTime;
 sf::Time dt;
 sf::Texture playerTex;
 std::vector<std::string> countries = { "gr", "it","en","fr","rm","bg","sp","pl"};
+
 std::string currentCountry = countries.at(0);
 Player player(&playerTex, sf::Vector2u(3/*collumn*/, 2/*row*/), 0.3f, 1.f);
 extern int mapSize = 5;
@@ -17,10 +20,14 @@ int startGame()
 
 	win.setActive(false);
 	std::thread loading(loadingScreen);
+
+	sf::Vector2f playerPos = player.getRect().getPosition();
+
 	sf::Texture *bgTex = new sf::Texture();
 	sf::Texture *borderTex = new sf::Texture();
 	bgTex->loadFromFile("assets/background/background.png");
 	borderTex->loadFromFile("assets/objects/fireHydrant.png");
+
 	sf::RectangleShape // Backgrounds
 		bg1(sf::Vector2f(2.f*WIDTH, HEIGHT)),
 		bg2(sf::Vector2f(2.f * WIDTH, HEIGHT)),
@@ -43,7 +50,7 @@ int startGame()
 	player.setTexture(&playerTex);
 
 	europe = makeCountries();
-	setCurrentCountry(currentCountry);
+	loadCurrentCountry(currentCountry);
 	// exit loading
 
 	loaded = true;
@@ -53,16 +60,40 @@ int startGame()
 	while (win.isOpen())
 	{
 		dt = frameTime.restart();
-
+		
 		sf::Event e;
 		while (win.pollEvent(e))
-		{
+		{	
+			
 			if (e.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 				return 0; // close
-		}
+			if (e.type == sf::Event::KeyReleased && e.key.code == sf::Keyboard::E)
+			{
+				
+				for (auto it : europe.at(currentCountry).getBuildings()) 
+				{ // check if player has entered a building
 
+					
+					if (!player.isInside() && it.second.intersectsDoor(player.getRect()))
+					{
+						playerPos = player.getRect().getPosition();
+						it.second.tpInside();
+						break;
+					}
+
+					if (player.isInside() && player.getRect().getPosition().x <= HEIGHT / 108.f)
+					{
+						it.second.tpOutside(playerPos);
+						break;
+					}
+				}
+			}
+			
+		}
 		player.update();
+
 		switchBgPlaces(player, bg1, bg2);
+
 		win.setView(player.getView());
 		player.setViewCenter(sf::Vector2f(player.getRect().getPosition().x + player.getRect().getSize().x / 2,
 			player.getRect().getPosition().y - player.getRect().getSize().y / 3));
@@ -73,6 +104,7 @@ int startGame()
 
 		for (auto it : europe.at(currentCountry).getBuildings()) {
 			win.draw(it.second.getOutsideRect());
+			win.draw(it.second.getInsideRect());
 		}
 		win.draw(borderBegin);
 		win.draw(borderEnd);
@@ -99,11 +131,10 @@ std::unordered_map<std::string, Country> makeCountries()
 	return europe;
 }
 
-void setCurrentCountry(std::string countryCode)
+void loadCurrentCountry(std::string countryCode)
 {
 	currentCountry = countryCode;
-	// load new buildings insides
-	// load new npcs
+	europe.at(countryCode).setBuildingsInPos(HEIGHT);
 }
 
 sf::RectangleShape temp;

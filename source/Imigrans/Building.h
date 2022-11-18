@@ -23,6 +23,8 @@ public:
 	const sf::Texture* getOutsideTexture();
 	const sf::Texture* getInsideTexture();
 
+	const sf::Vector2f getDoorPos();
+
 	const NPC getNPC();
 
 	// setters
@@ -46,6 +48,8 @@ public:
 	// methods
 
 	bool intersectsDoor(const sf::RectangleShape& rect);
+	void tpInside();
+	void tpOutside(sf::Vector2f pos);
 
 private:
 

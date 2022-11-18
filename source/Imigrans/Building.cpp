@@ -54,7 +54,7 @@ const sf::RectangleShape Building::getOutsideRect()
 
 const sf::RectangleShape Building::getInsideRect()
 {
-	return outside;
+	return inside;
 }
 
 const sf::Texture* Building::getOutsideTexture()
@@ -65,6 +65,11 @@ const sf::Texture* Building::getOutsideTexture()
 const sf::Texture* Building::getInsideTexture()
 {
 	return inTexture;
+}
+
+const sf::Vector2f Building::getDoorPos()
+{
+	return doorTopLeft;
 }
 
 const NPC Building::getNPC()
@@ -132,4 +137,16 @@ void Building::setNPC(NPC npc)
 bool Building::intersectsDoor(const sf::RectangleShape& rect)
 {
 	return rect.getGlobalBounds().intersects(sf::FloatRect(doorTopLeft.x, doorTopLeft.y, doorBottomRight.x - doorTopLeft.x, doorBottomRight.y - doorTopLeft.y));
+}
+
+void Building::tpInside()
+{
+	player.setPosition(sf::Vector2f(0, inside.getPosition().y + HEIGHT - player.getRect().getSize().y - HEIGHT / 16.f));
+	player.setInside(true);
+}
+
+void Building::tpOutside(sf::Vector2f pos)
+{
+	player.setInside(false);
+	player.setPosition(pos);
 }

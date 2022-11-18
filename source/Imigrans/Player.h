@@ -16,6 +16,7 @@ public: // constructors
 	const sf::RectangleShape getRect();
 	const sf::Texture* getTexture();
 	const sf::View getView();
+	const bool isInside();
 
 	// setters
 
@@ -25,6 +26,7 @@ public: // constructors
 	void setView(sf::View view);
 	void setViewSize(sf::Vector2f size);
 	void setViewCenter(sf::Vector2f center);
+	void setInside(bool in);
 
 private: 
 
@@ -42,6 +44,6 @@ private:
 	unsigned int row;
 	float mSpeed;
 	bool fRight;
-	bool inside;
+	bool inside = false;
 };
 

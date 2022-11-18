@@ -235,6 +235,17 @@ void Country::setBuildings(std::unordered_map<std::string, Building>& buildings)
 {
 	this->buildings = buildings;
 }
+
+void Country::setBuildingsInPos(float y)
+{
+	int i = 2;
+	for (auto& j : buildings)
+	{
+		j.second.setInsidePos(sf::Vector2f(0, y * i));
+		i+=2;
+	}
+}
+
 void Country::setBuildings(std::unordered_map<std::string, Building> buildings)
 {
 	this->buildings = buildings;
