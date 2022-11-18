@@ -49,7 +49,7 @@ Country::Country(std::string country)
 	{
 		// bank
 
-		t[0].loadFromFile("assets/building/bar/outside.png");
+		t[0].loadFromFile("assets/building/bank/outside.png");
 		t[1].loadFromFile("assets/building/bank/inside.png");
 		buildings.insert({ "bank",
 			Building(&t[0],&t[1]) });

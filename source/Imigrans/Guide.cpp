@@ -35,21 +35,11 @@ int startGuide()
 
 
 	sf::Texture BackgroundTex;
-	BackgroundTex.loadFromFile("assets/nokiTech/rotated.png");
+	BackgroundTex.loadFromFile("assets/nokiTech/guide.png");
 	background.setTexture(&BackgroundTex);
 
 
-	sf::Font font;
-	font.loadFromFile("assets/font/Teko-Regular.ttf");
-	sf::Text text;
-	text.setCharacterSize(64.f);
-	text.setString("Hello world, welcome to our game.\n You control the character with  'A' and 'D' or the arrows.\n You have to press the button 'E' to enter doors and talk to the NPC's.\n You complete the game by going trough 5 of the countries.\nThe point of the game is to come up with a strategy for gaining money.");
-	text.setFont(font);
-	text.setFillColor(sf::Color::Green);
-	text.setOutlineColor(sf::Color::White);
-	text.setOutlineThickness(2.f);
-	text.setPosition(sf::Vector2f((float)WIDTH / 5.9f, (float)HEIGHT / 20));
-
+	
 	// exit loading
 
 	loaded = true;
@@ -75,10 +65,9 @@ int startGuide()
 		win.setView(fixed);
 		win.draw(background);
 		win.draw(exitButton);
-		win.draw(text);
 
 		win.draw(pointerHand);
 		win.display();
 	}
 	return 0;
-}
+} 
