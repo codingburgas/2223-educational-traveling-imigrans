@@ -73,7 +73,6 @@ int startGame()
 				for (auto it : europe.at(currentCountry).getBuildings()) 
 				{ // check if player has entered a building
 
-					
 					if (!player.isInside() && it.second.intersectsDoor(player.getRect()))
 					{
 						playerPos = player.getRect().getPosition();
