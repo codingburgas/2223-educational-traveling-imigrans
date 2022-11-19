@@ -90,7 +90,7 @@ int startGame()
 			
 		}
 		player.update();
-
+		sf::Vector2f viewCenter = player.getView().getCenter(); 
 		switchBgPlaces(player, bg1, bg2);
 
 		win.setView(player.getView());
@@ -100,7 +100,7 @@ int startGame()
 		win.clear(sf::Color::Black);
 		win.draw(bg1);
 		win.draw(bg2);
-
+		
 		for (auto it : europe.at(currentCountry).getBuildings()) {
 			win.draw(it.second.getOutsideRect());
 			win.draw(it.second.getInsideRect());
@@ -108,6 +108,7 @@ int startGame()
 		win.draw(borderBegin);
 		win.draw(borderEnd);
 		win.draw(player.getRect());
+		currency(sf::Vector2f(viewCenter.x + WIDTH /2.5, viewCenter.y -HEIGHT/2));
 		
 		win.display();
 	}

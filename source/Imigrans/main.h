@@ -14,12 +14,14 @@ int startGame();
 int startNokiPhone();
 int startNokiMap();
 int startGuide();
+int startTravelOptions();
 void loadingScreen();
 void currency(sf::Vector2f pos);
 void valueManager(char sym, int sum);
 
 extern bool loaded;
 extern std::string currentCountry;
+
 
 const float 
 	WIDTH = (float)sf::VideoMode::getDesktopMode().width, 

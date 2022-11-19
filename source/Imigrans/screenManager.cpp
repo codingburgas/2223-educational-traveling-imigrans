@@ -26,6 +26,9 @@ int manageScreen(std::function<int()> func)
 	case 5:
 		manageScreen(startGuide);
 		break;
+	case 6:
+		manageScreen(startTravelOptions); 
+		break;
 	default: // error
 	
 		std::cout << "Error Wrong return value at " << &func << "\n";

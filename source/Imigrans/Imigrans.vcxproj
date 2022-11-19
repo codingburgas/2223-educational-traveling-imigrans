@@ -166,6 +166,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="screenManager.cpp" />
     <ClCompile Include="sideSwiperMain.cpp" />
+    <ClCompile Include="travelOptions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
