@@ -117,7 +117,7 @@ int startTravelOptions()
 		{
 
 			if (e.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-				return 0; // close
+				Pause();
 			sf::Vector2f mpos = win.mapPixelToCoords(sf::Mouse::getPosition(win));
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && planeCostButton.getGlobalBounds().contains(mpos))

@@ -66,7 +66,7 @@ int startGame()
 		{	
 			
 			if (e.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-				return 0; // close
+				Pause();
 			if (e.type == sf::Event::KeyReleased && e.key.code == sf::Keyboard::E)
 			{
 				

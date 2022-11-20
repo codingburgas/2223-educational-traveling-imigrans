@@ -11,7 +11,7 @@ void loadingScreen()
 	loadingTex.loadFromFile("assets/background/loadingSpriteSheet.png");
 	sf::RectangleShape loading(sf::Vector2f(WIDTH, HEIGHT + 1.f));
 	loading.setTexture(&loadingTex);
-	Animation loadingAnimation(&loadingTex, sf::Vector2u(3, 1), 0.0002f); // ne baray nulite
+	Animation loadingAnimation(&loadingTex, sf::Vector2u(3, 1), 0.00002f); // ne baray nulite
 
 	sf::Clock deltaTime;
 	while (true)

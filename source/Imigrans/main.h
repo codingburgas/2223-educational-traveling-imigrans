@@ -9,7 +9,7 @@
 #include <chrono>
 
 int manageScreen(std::function<int()> func);
-int mainMenu();
+
 int startGame();
 int startNokiPhone();
 int startNokiMap();
@@ -18,7 +18,7 @@ int startTravelOptions();
 void loadingScreen();
 void currency(sf::Vector2f pos);
 void valueManager(char sym, int sum);
-
+void Pause();
 extern bool loaded;
 extern std::string currentCountry;
 

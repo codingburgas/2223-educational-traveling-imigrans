@@ -73,7 +73,7 @@ int startNokiPhone()
 		{
 
 			if (e.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-				return 0; // close
+				return 0;
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && playButton.getGlobalBounds().contains(mpos))
 			{

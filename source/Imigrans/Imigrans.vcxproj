@@ -158,11 +158,11 @@
     <ClCompile Include="Guide.cpp" />
     <ClCompile Include="loadingScreen.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="manageCurrency.cpp" />
     <ClCompile Include="nokiMap.cpp" />
     <ClCompile Include="nokiMenu.cpp" />
     <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="Pause.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="screenManager.cpp" />
     <ClCompile Include="sideSwiperMain.cpp" />
