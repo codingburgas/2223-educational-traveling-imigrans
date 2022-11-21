@@ -155,6 +155,7 @@
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="buildingsInside.cpp" />
     <ClCompile Include="Country.cpp" />
+    <ClCompile Include="gameOver.cpp" />
     <ClCompile Include="Guide.cpp" />
     <ClCompile Include="loadingScreen.cpp" />
     <ClCompile Include="main.cpp" />

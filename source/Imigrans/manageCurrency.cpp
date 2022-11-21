@@ -2,7 +2,7 @@
 
 
 void valueManager(char sym, int sum);
-int currencyCount = 1000;
+int currencyCount = 210;
 
 
 void currency(sf::Vector2f pos)

@@ -38,6 +38,11 @@ const sf::Texture* NPC::getTexture()
 	return texture;
 }
 
+bool NPC::getQuestGiven() const
+{
+	return questGiven;
+}
+
 // setters
 
 void NPC::setRect(sf::RectangleShape body)
@@ -60,6 +65,11 @@ void NPC::updateAnim()
 {
 	anim.update(0, (float)dt.asMilliseconds(), true);
 	body.setTextureRect(anim.uvRect);
+}
+
+void NPC::setQuestGiven(bool b)
+{
+	questGiven = b;
 }
 
 // methods

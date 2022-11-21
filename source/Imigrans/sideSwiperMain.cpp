@@ -8,7 +8,7 @@ sf::Clock frameTime;
 sf::Time dt;
 sf::Texture playerTex;
 std::vector<std::string> countries = { "gr", "it","en","fr","rm","bg","sp","pl"};
-
+int countriesPlHasBeenIn = 0;
 std::string currentCountry = countries.at(0);
 Player player(&playerTex, sf::Vector2u(3/*collumn*/, 2/*row*/), 0.3f, 1.f);
 extern int mapSize = 5;
@@ -20,6 +20,8 @@ int startGame()
 
 	win.setActive(false);
 	std::thread loading(loadingScreen);
+
+	++countriesPlHasBeenIn;
 
 	sf::Vector2f playerPos = player.getRect().getPosition();
 
@@ -46,6 +48,7 @@ int startGame()
 	borderEnd.setTexture(borderTex);
 
 	player.setPosition(sf::Vector2f(player.getRect().getPosition().x, (HEIGHT - player.getRect().getSize().y)));
+	player.setInside(false);
 	playerTex.loadFromFile("assets/character/spriteSheet.png");
 	player.setTexture(&playerTex);
 
@@ -60,6 +63,8 @@ int startGame()
 	frameTime.restart();
 	while (win.isOpen())
 	{
+		if(currencyCount < 0 || countriesPlHasBeenIn == 5)
+			gameOver();
 		dt = frameTime.restart();
 		
 		sf::Event e;
@@ -113,8 +118,9 @@ int startGame()
 			win.draw(it.second.getInsideRect());
 			if (player.isInside())
 			{
-				if (it.second.getNPC().closeEnough() && sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+				if (it.second.getNPC().closeEnough() && !it.second.getNPC().getQuestGiven() && sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 				{
+					it.second.setNPCQuestGiven(true);
 					startQuest(rand() % 10 + 1);
 					frameTime.restart();
 				}
@@ -153,8 +159,11 @@ std::unordered_map<std::string, Country> makeCountries()
 
 void loadCurrentCountry(std::string countryCode)
 {
+	std::cout << "load current country\n";
 	currentCountry = countryCode;
 	europe.at(countryCode).setBuildingsInPos(HEIGHT);
+	player.setPosition(sf::Vector2f(player.getRect().getPosition().x, (HEIGHT - player.getRect().getSize().y)));
+	player.setInside(false);
 }
 
 sf::RectangleShape temp;
@@ -178,4 +187,14 @@ void switchBgPlaces(Player& p, sf::RectangleShape& bg1, sf::RectangleShape& bg2)
 	{
 		bg2.setPosition(bg1.getPosition().x - bg2.getSize().x, HEIGHT / 11.613f);
 	}
+}
+
+int restart()
+{
+	countries = { "gr", "it","en","fr","rm","bg","sp","pl" };
+	countriesPlHasBeenIn = 0;
+	currentCountry = countries.at(0);
+	europe.clear();
+	currencyCount = 210;
+	return 3;
 }

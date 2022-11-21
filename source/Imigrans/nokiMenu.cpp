@@ -20,6 +20,7 @@ int startNokiPhone()
 	sf::RectangleShape exitButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31f));
 	sf::RectangleShape pointerHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
 
+	win.setMouseCursorVisible(false);
 	sf::View fixed = win.getView(); // Create a fixed view
 	fixed.setCenter(WIDTH / 2, HEIGHT / 2);
 
