@@ -15,7 +15,8 @@ int		startNokiPhone();
 int		startNokiMap();
 int		startGuide();
 int		startTravelOptions();
-int		startQuest();
+
+bool	startQuest(int quest);
 
 void	loadingScreen();
 void	currency(sf::Vector2f pos);

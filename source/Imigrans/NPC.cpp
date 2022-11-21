@@ -61,3 +61,10 @@ void NPC::updateAnim()
 	anim.update(0, (float)dt.asMilliseconds(), true);
 	body.setTextureRect(anim.uvRect);
 }
+
+// methods
+
+bool NPC::closeEnough()
+{
+	return abs(player.getRect().getPosition().x - body.getPosition().x) <= WIDTH / 3.f;
+}

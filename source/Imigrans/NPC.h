@@ -24,6 +24,10 @@ public:
 	void setTexture(sf::Texture* texture);
 	void updateAnim();
 
+	// methods
+
+	bool closeEnough();
+
 private:
 
 	sf::RectangleShape body;

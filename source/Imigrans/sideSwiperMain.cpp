@@ -113,6 +113,11 @@ int startGame()
 			win.draw(it.second.getInsideRect());
 			if (player.isInside())
 			{
+				if (it.second.getNPC().closeEnough() && sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+				{
+					startQuest(rand() % 10 + 1);
+					frameTime.restart();
+				}
 				it.second.updateNPCAnim();
 				win.draw(it.second.getNPC().getRect());
 			}

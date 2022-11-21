@@ -27,7 +27,7 @@ int startNokiPhone()
 	sf::Texture cursorTex;
 	cursorTex.loadFromFile("assets/hand/cursor.png");
 	pointerHand.setTexture(&cursorTex);
-	pointerHand.setOrigin(sf::Vector2f(WIDTH / 10, HEIGHT / 10));
+	pointerHand.setOrigin(sf::Vector2f(WIDTH / 10.f, HEIGHT / 10.f));
 
 	sf::Texture holderTex;
 	holderTex.loadFromFile("assets/hand/phoneHolder.png");
