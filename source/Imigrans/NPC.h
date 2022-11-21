@@ -16,6 +16,7 @@ public:
 
 	sf::RectangleShape getRect() const;
 	const sf::Texture* getTexture();
+	bool getQuestGiven() const;
 
 	// setters
 
@@ -23,6 +24,7 @@ public:
 	void setPos(sf::Vector2f pos);
 	void setTexture(sf::Texture* texture);
 	void updateAnim();
+	void setQuestGiven(bool b);
 
 	// methods
 
@@ -33,4 +35,5 @@ private:
 	sf::RectangleShape body;
 	sf::Texture* texture;
 	Animation anim;
+	bool questGiven = false;
 };

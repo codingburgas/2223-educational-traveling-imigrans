@@ -47,6 +47,7 @@ public:
 
 	void setNPC(NPC npc);
 	void setNPCPos(sf::Vector2f pos);
+	void setNPCQuestGiven(bool b);
 
 	// methods
 

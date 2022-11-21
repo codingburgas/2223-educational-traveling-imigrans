@@ -150,6 +150,11 @@ void Building::setNPCPos(sf::Vector2f pos)
 	npc.setPos(pos);
 }
 
+void Building::setNPCQuestGiven(bool b)
+{
+	npc.setQuestGiven(b);
+}
+
 // methods
 
 bool Building::intersectsDoor(const sf::RectangleShape& rect) const

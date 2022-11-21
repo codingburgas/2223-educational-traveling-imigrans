@@ -239,7 +239,7 @@ bool startQuest(int quest)
 		while (win.pollEvent(e))
 		{
 			if (e.type == sf::Event::KeyPressed && e.key.code == sf::Keyboard::Escape)
-				pauseGame();
+				return false;
 			if (e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Left && curAns == nullptr)
 			{
 				for (auto& a : answers)
@@ -280,10 +280,12 @@ bool startQuest(int quest)
 				if (correct)
 				{
 					result.setTexture(&bgTexCorrect);
+					valueManager('+', 50);
 				}
 				else
 				{
 					result.setTexture(&bgTexWrong);
+					valueManager('-', 50);
 				}
 			}
 		}

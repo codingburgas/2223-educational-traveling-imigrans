@@ -10,11 +10,14 @@
 
 int		manageScreen(std::function<int()> func);
 
+int		restart();
+
 int		startGame();
 int		startNokiPhone();
 int		startNokiMap();
 int		startGuide();
 int		startTravelOptions();
+int		gameOver();
 
 bool	startQuest(int quest);
 
@@ -26,7 +29,7 @@ void	pauseGame();
 
 extern bool loaded;
 extern std::string currentCountry;
-
+extern int currencyCount;
 
 const float 
 	WIDTH = (float)sf::VideoMode::getDesktopMode().width, 
