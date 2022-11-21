@@ -1,12 +1,9 @@
 #include "main.h"
 
-
-
-void Pause()
+void pauseGame()
 {
     sf::RectangleShape background(sf::Vector2f(WIDTH, HEIGHT));
     background.setFillColor(sf::Color::White);
-    sf::RenderWindow window(sf::VideoMode((unsigned)WIDTH, (unsigned)HEIGHT), "Pause", sf::Style::None);
     sf::RectangleShape holdingHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
     sf::RectangleShape nokiPhone(sf::Vector2f(WIDTH / 4.f, HEIGHT / 1.2f));
     sf::RectangleShape playButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31f));
@@ -20,8 +17,9 @@ void Pause()
     background.setTexture(&BackgroundTex);
 
 
-    window.setMouseCursorVisible(false); // Hide cursor
-    sf::View fixed = window.getView(); // Create a fixed view
+    win.setMouseCursorVisible(false); // Hide cursor
+    sf::View fixed = win.getView(); // Create a fixed view
+    fixed.setCenter(WIDTH / 2, HEIGHT / 2);
 
 
     sf::Texture cursorTex;
@@ -54,39 +52,32 @@ void Pause()
     exitButton.setPosition(sf::Vector2f(WIDTH / 2.51f, HEIGHT / 1.9));
 
 
-
-
-    while (window.isOpen())
+    while (win.isOpen())
     {
-        auto mpos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+        sf::Vector2f mpos = win.mapPixelToCoords(sf::Mouse::getPosition(win));
         sf::Event e;
-        while (window.pollEvent(e))
+        while (win.pollEvent(e))
         {
- 
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && exitButton.getGlobalBounds().contains(mpos))
-            {
+            if (e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Left && exitButton.getGlobalBounds().contains(mpos))
                 exit(0);
-            }
 
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && playButton.getGlobalBounds().contains(mpos))
-            {
-                window.close();
-            }
+            else if (e.type == sf::Event::MouseButtonPressed && e.mouseButton.button == sf::Mouse::Left && playButton.getGlobalBounds().contains(mpos))
+                return;
 
-
+            if (e.type == sf::Event::KeyPressed && e.key.code == sf::Keyboard::Escape)
+                return;
         }
-        
-            pointerHand.setPosition(mpos); // Set position
-            window.clear();
-            window.draw(background);
-            window.draw(holdingHand);
-            window.draw(nokiPhone);
-            window.draw(playButton);
-            window.draw(exitButton);
 
+        win.setView(fixed);
+        pointerHand.setPosition(mpos); // Set position
+        win.clear();
+        win.draw(background);
+        win.draw(holdingHand);
+        win.draw(nokiPhone);
+        win.draw(playButton);
+        win.draw(exitButton);
 
-            window.draw(pointerHand);
-            window.display();
-       
+        win.draw(pointerHand);
+        win.display();
     }
 }

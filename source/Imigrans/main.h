@@ -8,17 +8,21 @@
 #include <thread>
 #include <chrono>
 
-int manageScreen(std::function<int()> func);
+int		manageScreen(std::function<int()> func);
 
-int startGame();
-int startNokiPhone();
-int startNokiMap();
-int startGuide();
-int startTravelOptions();
-void loadingScreen();
-void currency(sf::Vector2f pos);
-void valueManager(char sym, int sum);
-void Pause();
+int		startGame();
+int		startNokiPhone();
+int		startNokiMap();
+int		startGuide();
+int		startTravelOptions();
+int		startQuest();
+
+void	loadingScreen();
+void	currency(sf::Vector2f pos);
+void	valueManager(char sym, int sum);
+void	pauseGame();
+
+
 extern bool loaded;
 extern std::string currentCountry;
 

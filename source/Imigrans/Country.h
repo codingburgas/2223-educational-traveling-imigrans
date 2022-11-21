@@ -12,7 +12,7 @@ public:
 	~Country();
 	// getters
 	const Building getBuilding(std::string building);
-	const std::unordered_map<std::string, Building> getBuildings();
+	std::unordered_map<std::string, Building> getBuildings();
 
 	// setters
 
@@ -26,6 +26,7 @@ public:
 	void setBuildingDoor(std::string building);
 
 private:
+	sf::Texture *t = new sf::Texture[9];
 	std::unordered_map<std::string, Building> buildings;
 };
 

@@ -60,7 +60,10 @@
     <ClCompile Include="travelOptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Pause.cpp">
+    <ClCompile Include="pauseGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="questAttempt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

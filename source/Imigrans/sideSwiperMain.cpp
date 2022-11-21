@@ -57,6 +57,7 @@ int startGame()
 	loading.join(); // wait for the thread function to finish
 	win.setActive(true); // set window as an OpenGL render target
 
+	frameTime.restart();
 	while (win.isOpen())
 	{
 		dt = frameTime.restart();
@@ -66,17 +67,19 @@ int startGame()
 		{	
 			
 			if (e.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-				Pause();
+				pauseGame();
+
 			if (e.type == sf::Event::KeyReleased && e.key.code == sf::Keyboard::E)
 			{
 				
-				for (auto it : europe.at(currentCountry).getBuildings()) 
+				for (auto &it : europe.at(currentCountry).getBuildings()) 
 				{ // check if player has entered a building
 
 					if (!player.isInside() && it.second.intersectsDoor(player.getRect()))
 					{
 						playerPos = player.getRect().getPosition();
 						it.second.tpInside();
+						player.setViewCenter(it.second.getInsideRect().getPosition());
 						break;
 					}
 
@@ -87,11 +90,15 @@ int startGame()
 					}
 				}
 			}
-			
+
+			if (e.type == sf::Event::KeyPressed && e.key.code == sf::Keyboard::T)
+				return 4; // start NokiMap
 		}
 		player.update();
 		sf::Vector2f viewCenter = player.getView().getCenter(); 
-		switchBgPlaces(player, bg1, bg2);
+
+		if(!player.isInside())
+			switchBgPlaces(player, bg1, bg2);
 
 		win.setView(player.getView());
 		player.setViewCenter(sf::Vector2f(player.getRect().getPosition().x + player.getRect().getSize().x / 2,
@@ -101,14 +108,22 @@ int startGame()
 		win.draw(bg1);
 		win.draw(bg2);
 		
-		for (auto it : europe.at(currentCountry).getBuildings()) {
+		for (auto &it : europe.at(currentCountry).getBuildings()) {
 			win.draw(it.second.getOutsideRect());
 			win.draw(it.second.getInsideRect());
+			if (player.isInside())
+			{
+				it.second.updateNPCAnim();
+				win.draw(it.second.getNPC().getRect());
+			}
 		}
+
+		
+
 		win.draw(borderBegin);
 		win.draw(borderEnd);
 		win.draw(player.getRect());
-		currency(sf::Vector2f(viewCenter.x + WIDTH /2.5, viewCenter.y -HEIGHT/2));
+		currency(sf::Vector2f(viewCenter.x + WIDTH /2.5f, viewCenter.y -HEIGHT/2.f));
 		
 		win.display();
 	}

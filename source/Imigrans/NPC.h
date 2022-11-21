@@ -8,24 +8,25 @@ public:
 	// constructurs
 
 	NPC();
-	NPC(sf::Texture* texture);
+	NPC(sf::Texture* texture, sf::Vector2u imgCount, float sTime);
 	NPC(sf::RectangleShape body);
-	NPC(sf::RectangleShape body, sf::Texture* texture);
+	NPC(sf::RectangleShape body, sf::Texture* texture, sf::Vector2u imgCount, float sTime);
 
-	~NPC();
 	// getters
 
-	const sf::RectangleShape getRect();
+	sf::RectangleShape getRect() const;
 	const sf::Texture* getTexture();
 
 	// setters
 
 	void setRect(sf::RectangleShape body);
+	void setPos(sf::Vector2f pos);
 	void setTexture(sf::Texture* texture);
+	void updateAnim();
 
 private:
 
 	sf::RectangleShape body;
 	sf::Texture* texture;
-	Animation anim = Animation();
+	Animation anim;
 };

@@ -162,8 +162,9 @@
     <ClCompile Include="nokiMap.cpp" />
     <ClCompile Include="nokiMenu.cpp" />
     <ClCompile Include="NPC.cpp" />
-    <ClCompile Include="Pause.cpp" />
+    <ClCompile Include="pauseGame.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="questAttempt.cpp" />
     <ClCompile Include="screenManager.cpp" />
     <ClCompile Include="sideSwiperMain.cpp" />
     <ClCompile Include="travelOptions.cpp" />

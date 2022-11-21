@@ -4,37 +4,31 @@
 // constructors
 
 NPC::NPC() :
-	body(sf::RectangleShape()), texture(nullptr)
+	body(sf::RectangleShape(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f))), texture(nullptr), anim(Animation())
 {
-	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
 	body.setFillColor(sf::Color::Green);
 }
 
 NPC::NPC(sf::RectangleShape body) :
-	body(body), texture(nullptr)
+	body(body), texture(nullptr), anim(Animation())
 {}
 
-NPC::NPC(sf::Texture* texture) :
-	body(sf::RectangleShape()), texture(texture)
-{
-	body.setSize(sf::Vector2f(WIDTH / 10.159f, HEIGHT / 3.214f));
-	body.setTexture(texture);
-}
-
-NPC::NPC(sf::RectangleShape body, sf::Texture* texture) :
-	body(body), texture(texture)
+NPC::NPC(sf::Texture* texture, sf::Vector2u imgCount, float sTime) :
+	body(sf::RectangleShape(sf::Vector2f(texture->getSize().x/(2 * 3.214f), texture->getSize().y / 3.214f))), texture(texture),
+	anim(Animation(texture, imgCount, sTime))
 {
 	body.setTexture(texture);
 }
 
-
-NPC::~NPC()
+NPC::NPC(sf::RectangleShape body, sf::Texture* texture, sf::Vector2u imgCount, float sTime) :
+	body(body), texture(texture), anim(Animation(texture, imgCount, sTime))
 {
-	delete texture;
+	body.setTexture(texture);
 }
+
 // getters
 
-const sf::RectangleShape NPC::getRect()
+sf::RectangleShape NPC::getRect() const 
 {
 	return body;
 }
@@ -51,8 +45,19 @@ void NPC::setRect(sf::RectangleShape body)
 	this->body = body;
 }
 
+void NPC::setPos(sf::Vector2f pos)
+{
+	body.setPosition(pos);
+}
+
 void NPC::setTexture(sf::Texture* texture)
 {
 	this->texture = texture;
 	body.setTexture(texture);
+}
+
+void NPC::updateAnim()
+{
+	anim.update(0, (float)dt.asMilliseconds(), true);
+	body.setTextureRect(anim.uvRect);
 }

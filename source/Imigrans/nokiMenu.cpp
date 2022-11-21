@@ -8,8 +8,8 @@ int startNokiPhone()
 	std::thread loading(loadingScreen);
 
 	//prolong loading
-	using namespace std::chrono_literals;
-	std::this_thread::sleep_for(1000ms);
+	//using namespace std::chrono_literals;
+	//std::this_thread::sleep_for(1000ms);
 
 	sf::RectangleShape background(sf::Vector2f(WIDTH, HEIGHT));
 	background.setFillColor(sf::Color::White);
@@ -20,9 +20,8 @@ int startNokiPhone()
 	sf::RectangleShape exitButton(sf::Vector2f(WIDTH / 4.5f, HEIGHT / 9.31f));
 	sf::RectangleShape pointerHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
 
-
-	win.setMouseCursorVisible(false); // Hide cursor
 	sf::View fixed = win.getView(); // Create a fixed view
+	fixed.setCenter(WIDTH / 2, HEIGHT / 2);
 
 	// Load image and create sprite
 	sf::Texture cursorTex;
@@ -76,24 +75,13 @@ int startNokiPhone()
 				return 0;
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && playButton.getGlobalBounds().contains(mpos))
-			{
-				
-				return 4;
-				
+				return 4; // start NokiMap
 
-			}
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && guideButton.getGlobalBounds().contains(mpos))
-			{
-				return 5;
+			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && guideButton.getGlobalBounds().contains(mpos))
+				return 5; // start guide
 
-			}
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && exitButton.getGlobalBounds().contains(mpos))
-			{
-				return 0;
-
-			}
-
-		
+			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && exitButton.getGlobalBounds().contains(mpos))
+				return 0; // close
 		}
 
 		pointerHand.setPosition(mpos); // Set position

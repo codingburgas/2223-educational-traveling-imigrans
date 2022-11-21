@@ -10,8 +10,8 @@ int startNokiMap()
 	std::thread loading(loadingScreen);
 
 	// prolong loading
-	using namespace std::chrono_literals;
-	std::this_thread::sleep_for(1500ms);
+	//using namespace std::chrono_literals;
+	//std::this_thread::sleep_for(1500ms);
 
 	
 
@@ -108,7 +108,9 @@ int startNokiMap()
 		flag.second.setTexture(&flagTex);
 
 	win.setMouseCursorVisible(false); // Hide cursor
+
 	sf::View fixed = win.getView(); // Create a fixed view
+	fixed.setCenter(WIDTH / 2, HEIGHT / 2);
 
 
 	// Load image and create sprite
@@ -147,49 +149,49 @@ int startNokiMap()
 		{
 
 			if (e.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-				Pause();
+				pauseGame();
 			sf::Vector2f mpos = win.mapPixelToCoords(sf::Mouse::getPosition(win));
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("gr").getGlobalBounds().contains(mpos))
 			{
 				currentCountry = "gr";
-				return 6; 
+				return 6; // start TravelOptions
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && (cButtons.at("it").getGlobalBounds().contains(mpos) || cButtons.at("it2").getGlobalBounds().contains(mpos)))
 			{
 				currentCountry = "it";
-				return 6;
+				return 6; // start TravelOptions
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("en").getGlobalBounds().contains(mpos))
 			{
 				currentCountry = "en";
-				return 6;
+				return 6; // start TravelOptions
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("fr").getGlobalBounds().contains(mpos))
 			{
 				currentCountry = "fr";
-				return 6;
+				return 6; // start TravelOptions
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("rm").getGlobalBounds().contains(mpos))
 			{
 				currentCountry = "rm";
-				return 6;
+				return 6; // start TravelOptions
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("bg").getGlobalBounds().contains(mpos))
 			{
 				currentCountry = "bg";
-				return 6;
+				return 6; // start TravelOptions
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("sp").getGlobalBounds().contains(mpos))
 			{
 				currentCountry = "sp";
-				return 6;
+				return 6; // start TravelOptions
 
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("pl").getGlobalBounds().contains(mpos))
 			{
 				currentCountry = "pl";
-				return 6;
+				return 6; // start TravelOptions
 			}
 
 		}
@@ -201,7 +203,7 @@ int startNokiMap()
 		win.draw(nokiPhone);
 		win.draw(map);
 
-		for (auto flag : cFlags)
+		for (auto& flag : cFlags)
 			win.draw(flag.second);
 
 		win.draw(pointerHand);

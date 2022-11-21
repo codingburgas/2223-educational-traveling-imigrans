@@ -13,8 +13,8 @@ int startTravelOptions()
 	std::thread loading(loadingScreen);
 
 	// prolong loading
-	using namespace std::chrono_literals;
-	std::this_thread::sleep_for(1500ms);
+	//using namespace std::chrono_literals;
+	//std::this_thread::sleep_for(1500ms);
 
 
 
@@ -85,9 +85,9 @@ int startTravelOptions()
 	trainCost.setFillColor(sf::Color::Black);
 	busCost.setFillColor(sf::Color::Black);
 
-	planeCost.setCharacterSize(100.f);
-	trainCost.setCharacterSize(100.f);
-	busCost.setCharacterSize(100.f);
+	planeCost.setCharacterSize((unsigned)100);
+	trainCost.setCharacterSize((unsigned)100);
+	busCost.setCharacterSize((unsigned)100);
 
 	sf::Texture cursorTex;
 	cursorTex.loadFromFile("assets/hand/cursor.png");
@@ -117,7 +117,7 @@ int startTravelOptions()
 		{
 
 			if (e.type == sf::Event::KeyPressed && sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-				Pause();
+				pauseGame();
 			sf::Vector2f mpos = win.mapPixelToCoords(sf::Mouse::getPosition(win));
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && planeCostButton.getGlobalBounds().contains(mpos))

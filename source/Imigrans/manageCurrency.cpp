@@ -20,10 +20,10 @@ void currency(sf::Vector2f pos)
 
 		sf::Font font;
 		font.loadFromFile("assets/font/Teko-Bold.ttf");
+
 		if (!font.loadFromFile("assets/font/Teko-Bold.ttf"))
-		{
 			std::cout << "No font brother?";
-		}
+
 		sf::Text text;
 		std::string displayCurrencyCount;
 		displayCurrencyCount = std::to_string(currencyCount) + ".ol";
@@ -46,13 +46,7 @@ void currency(sf::Vector2f pos)
 void valueManager(char sym, int value)
 {
 	if (sym == '+')
-	{
 		currencyCount += value;
-		std::cout << currencyCount;
-	}
 	if (sym == '-')
-	{
 		currencyCount -= value;
-		std::cout << currencyCount;
-	}
 }

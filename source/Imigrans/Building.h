@@ -12,20 +12,22 @@ public:
 	Building();
 	Building(sf::RectangleShape outside, sf::RectangleShape inside, NPC npc = NPC());
 	Building(sf::Texture* outside, sf::Texture* inside, bool restaurant = false, NPC npc = NPC());
-	Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture* outTexture, sf::Texture* inTexture,  bool restaurant = false, NPC npc = NPC());
+	Building(sf::Texture* outTexture, sf::Texture* inTexture, sf::Texture* npcTexture, sf::Vector2u npcImgCount, float npcSTime, bool restaurant = false);
 
-	~Building();
+	Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture* outTexture, sf::Texture* inTexture,  bool restaurant = false, NPC npc = NPC());
+	Building(sf::RectangleShape outside, sf::RectangleShape inside, sf::Texture* outTexture, sf::Texture* inTexture, 
+		sf::Texture* npcTexture, sf::Vector2u npcImgCount, float npcSTime, bool restaurant = false);
 
 	// getters
-	const sf::RectangleShape getOutsideRect();
-	const sf::RectangleShape getInsideRect();
+	sf::RectangleShape getOutsideRect() const;
+	sf::RectangleShape getInsideRect() const;
 
-	const sf::Texture* getOutsideTexture();
-	const sf::Texture* getInsideTexture();
+	sf::Texture* getOutsideTexture() const;
+	sf::Texture* getInsideTexture() const;
 
-	const sf::Vector2f getDoorPos();
+	sf::Vector2f getDoorPos() const;
 
-	const NPC getNPC();
+	NPC getNPC() const;
 
 	// setters
 
@@ -44,12 +46,14 @@ public:
 	void setDoor(sf::Vector2f topLeft, sf::Vector2f bottomRight);
 
 	void setNPC(NPC npc);
+	void setNPCPos(sf::Vector2f pos);
 
 	// methods
 
-	bool intersectsDoor(const sf::RectangleShape& rect);
-	void tpInside();
-	void tpOutside(sf::Vector2f pos);
+	bool intersectsDoor(const sf::RectangleShape& rect) const;
+	void tpInside() const;
+	void tpOutside(sf::Vector2f pos) const;
+	void updateNPCAnim();
 
 private:
 

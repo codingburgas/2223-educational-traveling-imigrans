@@ -1,6 +1,5 @@
 #include "Animation.h"
 
-
 Animation::Animation() :
 	uvRect(sf::IntRect()), imgCount(sf::Vector2u()), currentImg(sf::Vector2u()), tTime(0), sTime(0)
 {}
