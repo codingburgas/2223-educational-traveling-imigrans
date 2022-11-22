@@ -109,9 +109,7 @@ int startNokiMap()
 
 	win.setMouseCursorVisible(false); // Hide cursor
 
-	sf::View fixed = win.getView(); // Create a fixed view
-	fixed.setCenter(WIDTH / 2, HEIGHT / 2);
-
+	sf::View fixed(sf::Vector2f(WIDTH / 2, HEIGHT / 2), sf::Vector2f(WIDTH, HEIGHT)); // Create a fixed view
 
 	// Load image and create sprite
 	sf::Texture cursorTex;
@@ -152,48 +150,14 @@ int startNokiMap()
 				pauseGame();
 			sf::Vector2f mpos = win.mapPixelToCoords(sf::Mouse::getPosition(win));
 
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("gr").getGlobalBounds().contains(mpos))
+			for (auto& button : cButtons)
 			{
-				currentCountry = "gr";
-				return 6; // start TravelOptions
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && button.second.getGlobalBounds().contains(mpos))
+				{
+					currentCountry = button.first;
+					return 6;
+				}
 			}
-			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && (cButtons.at("it").getGlobalBounds().contains(mpos) || cButtons.at("it2").getGlobalBounds().contains(mpos)))
-			{
-				currentCountry = "it";
-				return 6; // start TravelOptions
-			}
-			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("en").getGlobalBounds().contains(mpos))
-			{
-				currentCountry = "en";
-				return 6; // start TravelOptions
-			}
-			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("fr").getGlobalBounds().contains(mpos))
-			{
-				currentCountry = "fr";
-				return 6; // start TravelOptions
-			}
-			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("rm").getGlobalBounds().contains(mpos))
-			{
-				currentCountry = "rm";
-				return 6; // start TravelOptions
-			}
-			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("bg").getGlobalBounds().contains(mpos))
-			{
-				currentCountry = "bg";
-				return 6; // start TravelOptions
-			}
-			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("sp").getGlobalBounds().contains(mpos))
-			{
-				currentCountry = "sp";
-				return 6; // start TravelOptions
-
-			}
-			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && cButtons.at("pl").getGlobalBounds().contains(mpos))
-			{
-				currentCountry = "pl";
-				return 6; // start TravelOptions
-			}
-
 		}
 		pointerHand.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(win))); 
 		win.clear(sf::Color::Black);

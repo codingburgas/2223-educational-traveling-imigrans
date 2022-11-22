@@ -64,8 +64,7 @@ int startTravelOptions()
 	sf::Text busCost; 
 	
 	sf::Font font; 
-	font.loadFromFile("assets/font/Teko-Bold.ttf");
-	if (!font.loadFromFile("assets/font/Teko-Bold.ttf"))
+	if (!font.loadFromFile("assets/font/retroGaming.ttf"))
 	{
 		std::cout << "NO FONT BROTHER";
 	}
@@ -77,17 +76,17 @@ int startTravelOptions()
 	trainCost.setString(std::to_string(trainValue) + ".ol");
 	busCost.setString(std::to_string(busValue) + ".ol");
 
-	planeCost.setPosition(sf::Vector2f(WIDTH / 1.65f, HEIGHT / 6.1f));
-	trainCost.setPosition(sf::Vector2f(WIDTH / 1.655f, HEIGHT / 2.35f));
-	busCost.setPosition(sf::Vector2f(WIDTH / 1.65f, HEIGHT / 1.43f));
+	planeCost.setPosition(sf::Vector2f(WIDTH / 1.65f, HEIGHT / 5.6f));
+	trainCost.setPosition(sf::Vector2f(WIDTH / 1.655f, HEIGHT / 2.23f));
+	busCost.setPosition(sf::Vector2f(WIDTH / 1.65f, HEIGHT / 1.37f));
 
 	planeCost.setFillColor(sf::Color::Black); 
 	trainCost.setFillColor(sf::Color::Black);
 	busCost.setFillColor(sf::Color::Black);
 
-	planeCost.setCharacterSize((unsigned)100);
-	trainCost.setCharacterSize((unsigned)100);
-	busCost.setCharacterSize((unsigned)100);
+	planeCost.setCharacterSize((unsigned)69);
+	trainCost.setCharacterSize((unsigned)69);
+	busCost.setCharacterSize((unsigned)69);
 
 	sf::Texture cursorTex;
 	cursorTex.loadFromFile("assets/hand/cursor.png");

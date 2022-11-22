@@ -19,9 +19,9 @@ void currency(sf::Vector2f pos)
 		sf::Vector2f textPos(pos.x - WIDTH / 50, pos.y);
 
 		sf::Font font;
-		font.loadFromFile("assets/font/Teko-Bold.ttf");
+		font.loadFromFile("assets/font/tekoBold.ttf");
 
-		if (!font.loadFromFile("assets/font/Teko-Bold.ttf"))
+		if (!font.loadFromFile("assets/font/tekoBold.ttf"))
 			std::cout << "No font brother?";
 
 		sf::Text text;
@@ -34,9 +34,6 @@ void currency(sf::Vector2f pos)
 		text.setFillColor(sf::Color::White);
 		text.setOutlineColor(sf::Color::Black);
 		text.setOutlineThickness(2.f);
-
-
-
 
 		win.draw(currency);
 		win.draw(text);

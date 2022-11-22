@@ -21,8 +21,7 @@ int startNokiPhone()
 	sf::RectangleShape pointerHand(sf::Vector2f(WIDTH / 3.f, HEIGHT));
 
 	win.setMouseCursorVisible(false);
-	sf::View fixed = win.getView(); // Create a fixed view
-	fixed.setCenter(WIDTH / 2, HEIGHT / 2);
+	sf::View fixed(sf::Vector2f(WIDTH / 2, HEIGHT / 2),sf::Vector2f(WIDTH,HEIGHT)); // Create a fixed view
 
 	// Load image and create sprite
 	sf::Texture cursorTex;

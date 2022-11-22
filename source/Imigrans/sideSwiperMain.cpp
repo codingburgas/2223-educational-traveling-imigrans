@@ -64,7 +64,7 @@ int startGame()
 	while (win.isOpen())
 	{
 		if(currencyCount < 0 || countriesPlHasBeenIn == 5)
-			gameOver();
+			manageScreen(gameOver);
 		dt = frameTime.restart();
 		
 		sf::Event e;

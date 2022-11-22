@@ -2,8 +2,9 @@
 
 int gameOver()
 {
+	sf::View fixed(sf::Vector2f(WIDTH / 2, HEIGHT / 2), sf::Vector2f(WIDTH, HEIGHT)); // Create a fixed view
 	sf::Font font;
-	font.loadFromFile("assets/font/Teko-Bold.ttf");
+	font.loadFromFile("assets/font/retroGaming.ttf");
 	sf::Text gameover("Game Over!", font, 169);
 	gameover.setOrigin(	gameover.getLocalBounds().left + gameover.getLocalBounds().width / 2,
 						gameover.getLocalBounds().top + gameover.getLocalBounds().height / 2);
@@ -36,6 +37,7 @@ int gameOver()
 				if (e.type == sf::Event::KeyPressed && e.key.code == sf::Keyboard::Escape)
 					exit(0);
 			}
+			win.setView(fixed);
 			win.clear(sf::Color(200, 0, 0));
 			win.draw(gameover);
 			win.draw(ending);
@@ -44,6 +46,7 @@ int gameOver()
 			win.display();
 		}
 	}
+
 	ending.setString("You Won!");
 	ending.setOrigin(ending.getLocalBounds().left + ending.getLocalBounds().width / 2,
 		ending.getLocalBounds().top + ending.getLocalBounds().height / 2);
@@ -63,6 +66,7 @@ int gameOver()
 			if (e.type == sf::Event::KeyPressed && e.key.code == sf::Keyboard::Escape)
 				exit(0);
 		}
+		win.setView(fixed);
 		win.clear(sf::Color(0, 200, 0));
 		win.draw(gameover);
 		win.draw(ending);

@@ -1,7 +1,5 @@
 #include "sideSwiper.h"
 
-
-
 bool startQuest(int quest)
 {
 	win.setMouseCursorVisible(true);
@@ -43,7 +41,7 @@ bool startQuest(int quest)
 
 	// YOU SHALL IGNORE ALL THAT IS GOING ON IN THIS SWITCH
 	// please
-	// go to line 200
+	// go to line 212
 
 	switch (quest)
 	{
@@ -296,7 +294,7 @@ bool startQuest(int quest)
 		win.clear(sf::Color(16, 0, 31, 255));
 		win.draw(background);
 		win.draw(question);
-		
+
 		for (auto& a : answers)
 			win.draw(a);
 		win.draw(checkButton);
