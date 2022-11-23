@@ -30,7 +30,7 @@ void	pauseGame();
 extern bool loaded;
 extern std::string currentCountry;
 extern int currencyCount;
-
+extern float travelMulty;
 const float 
 	WIDTH = (float)sf::VideoMode::getDesktopMode().width, 
 	HEIGHT = (float)sf::VideoMode::getDesktopMode().height;

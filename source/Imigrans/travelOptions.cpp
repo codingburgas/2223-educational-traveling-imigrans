@@ -121,18 +121,21 @@ int startTravelOptions()
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && planeCostButton.getGlobalBounds().contains(mpos))
 			{
+				travelMulty = 1.5f;
 				valueManager('-', 200);
 				return 2;
 				
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && trainCostButton.getGlobalBounds().contains(mpos))
 			{
+				travelMulty = 0.5f;
 				valueManager('-', 30);
 				return 2;
 				
 			}
 			else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && busCostButton.getGlobalBounds().contains(mpos))
 			{
+				travelMulty = 1.f;
 				valueManager('-', 50);
 				return 2;
 			}

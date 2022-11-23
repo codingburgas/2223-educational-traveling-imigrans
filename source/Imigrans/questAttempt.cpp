@@ -278,7 +278,7 @@ bool startQuest(int quest)
 				if (correct)
 				{
 					result.setTexture(&bgTexCorrect);
-					valueManager('+', 50);
+					valueManager('+', 50 * travelMulty);
 				}
 				else
 				{

@@ -12,6 +12,7 @@ int countriesPlHasBeenIn = 0;
 std::string currentCountry = countries.at(0);
 Player player(&playerTex, sf::Vector2u(3/*collumn*/, 2/*row*/), 0.3f, 1.f);
 extern int mapSize = 5;
+float travelMulty = 1.f;
 std::unordered_map<std::string, Country> europe;
 
 int startGame()
